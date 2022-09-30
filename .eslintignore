@@ -1,0 +1,4 @@
+*.spec.ts
+test.ts
+polyfills.ts
+environment.*.ts

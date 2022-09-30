@@ -1,17 +1,53 @@
 {
     "name": "triple-vanish",
-    "version": "1.0.0",
-    "main": "index.js",
+    "version": "0.0.0",
     "scripts": {
-        "serve": "concurrently \"tsc --watch\" \"ws\" \"sass --watch src/styles/index.scss src/styles/index.css \""
+        "ng": "ng",
+        "start": "ng serve",
+        "build": "ng build",
+        "watch": "ng build --watch --configuration development",
+        "test": "ng test",
+        "lint": "eslint --color -c .eslintrc.js --ext .ts"
     },
-    "repository": "https://github.com/chris93983/triple-vanish.git",
-    "author": "Song, Kaiyuan",
-    "license": "MIT",
+    "private": true,
+    "dependencies": {
+        "@angular/animations": "^14.2.0",
+        "@angular/common": "^14.2.0",
+        "@angular/compiler": "^14.2.0",
+        "@angular/core": "^14.2.0",
+        "@angular/forms": "^14.2.0",
+        "@angular/platform-browser": "^14.2.0",
+        "@angular/platform-browser-dynamic": "^14.2.0",
+        "@angular/router": "^14.2.0",
+        "rxjs": "~7.5.0",
+        "tslib": "^2.3.0",
+        "zone.js": "~0.11.4"
+    },
     "devDependencies": {
-        "concurrently": "^6.2.1",
-        "local-web-server": "^5.2.1",
-        "sass": "^1.55.0",
-        "typescript": "^4.8.3"
+        "@angular-devkit/build-angular": "^14.2.4",
+        "@angular-eslint/eslint-plugin": "13.0.1",
+        "@angular-eslint/eslint-plugin-template": "13.0.1",
+        "@angular-eslint/schematics": "13.0.1",
+        "@angular-eslint/template-parser": "13.0.1",
+        "@angular/cli": "~14.2.4",
+        "@angular/compiler-cli": "^14.2.0",
+        "@types/jasmine": "~4.0.0",
+        "@typescript-eslint/eslint-plugin": "^5.7.0",
+        "@typescript-eslint/eslint-plugin-tslint": "^5.7.0",
+        "@typescript-eslint/parser": "^5.7.0",
+        "codelyzer": "^6.0.0",
+        "eslint": "^8.2.0",
+        "eslint-plugin-import": "^2.25.3",
+        "eslint-plugin-jsdoc": "^37.3.0",
+        "eslint-plugin-prefer-arrow": "^1.2.3",
+        "eslint-plugin-simple-import-sort": "^7.0.0",
+        "eslint-plugin-unused-imports": "^2.0.0",
+        "jasmine-core": "~4.3.0",
+        "karma": "~6.4.0",
+        "karma-chrome-launcher": "~3.1.0",
+        "karma-coverage": "~2.2.0",
+        "karma-jasmine": "~5.1.0",
+        "karma-jasmine-html-reporter": "~2.0.0",
+        "typescript": "~4.7.2"
     }
 }
