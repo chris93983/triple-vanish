@@ -1,3 +1,7 @@
 @function assets($path) {
     @return '~src/assets/' + $path;
 }
+
+@function image-assets($path) {
+    @return assets('images/' + $path);
+}

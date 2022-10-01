@@ -3,11 +3,18 @@
 
 * {
     box-sizing: border-box;
+    background-repeat: no-repeat;
+}
+
+html, body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
 }
 
 body {
-    height: 100vh;
-    margin: 0;
+    width: 100%;
+    flex-direction: column;
     box-sizing: border-box;
     padding-top: env(safe-area-inset-top);
 

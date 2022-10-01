@@ -1,0 +1,7 @@
+@import "shared-styles";
+
+:host {
+    background-image: url(image-assets("login/background.png"));
+    background-size: cover;
+    background-position: center;
+}

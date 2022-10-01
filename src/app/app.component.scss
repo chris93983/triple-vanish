@@ -1,0 +1,15 @@
+@import "shared-styles";
+
+:host {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+::ng-deep {
+    router-outlet + * {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+}
