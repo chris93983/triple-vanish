@@ -1,0 +1,2 @@
+export const SMALL_SCREEN_EDGE = 927;
+export const PORTRAIT_SMALL_SCREEN_EDGE = 643;

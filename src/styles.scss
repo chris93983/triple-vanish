@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    height: 100vh;
+    margin: 0;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top);
+
+    &.no-border {
+        padding-top: 0;
+    }
+}
