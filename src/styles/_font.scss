@@ -1,11 +1,10 @@
-// @font-face {
-//     font-family: 'Noto Sans';
-//     font-style: normal;
-//     font-weight: 300;
-//     font-display: swap;
-//     src: local('Noto Sans SC Light'), local('NotoSansSC-Light'),
-//          url(assets('fonts/noto-sans-sc-v9-latin-100.woff2')) format('woff2');
-// }
+@font-face {
+    font-family: '方正粗圆简体';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('方正粗圆简体 SC Light'), url(assets('fonts/方正粗圆简体.woff2')) format('woff2');
+}
 // @font-face {
 //     font-family: 'Noto Sans';
 //     font-style: normal;

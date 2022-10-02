@@ -2,6 +2,80 @@
 
 :host {
     background-image: url(image-assets("login/background.png"));
-    background-size: cover;
-    background-position: center;
+    overflow: hidden;
+}
+
+.vine,
+.banner,
+.character,
+.character::before,
+.character::after,
+.banner::before,
+.btn-login {
+    position: absolute;
+    width: var(--width);
+}
+
+.center {
+    left: calc((100vw - var(--width)) / 2);
+}
+
+.vine {
+    --width: 100%;
+    height: 45.58vw;
+    background-image: url(image-assets("login/vine.png"));
+    top: 0;
+    z-index: 3;
+}
+
+.banner {
+    --width: 73.52vw;
+    height: 41.5vw;
+    background-image: url(image-assets("login/banner.png"));
+    top: 5%;
+    z-index: 2;
+
+    &::before {
+        content: '';
+        @include size(23.42%, 12.98%);
+        background-image: url(image-assets("login/title.png"));
+        left: 38.29%;
+        bottom: 23%;
+    }
+}
+
+.character {
+    --width: min(52.82vw, 27.46vh);
+    height: min(90.38vw, 47vh);
+    bottom: 15vh;
+    z-index: 2;
+
+    &::before {
+        content: '';
+        @include size(100%);
+        background-image: url(image-assets("login/character.png"));
+        z-index: 2;
+    }
+
+    &::after {
+        content: '';
+        @include size(121.41%, 56.02%);
+        background-image: url(image-assets("login/character-shadow.png"));
+        transform: translate(34%, 170%);
+        z-index: 1;
+    }
+}
+
+.btn-login {
+    --width: max(133px, 26vw);
+    height: calc(var(--width) / 2.46);
+    background-image: url(image-assets("login/btn-login.png"));
+    transition: filter $widget-transition, transform $widget-transition;
+    bottom: calc(20px + 4vw);
+    z-index: 9;
+
+    &:active {
+        filter: brightness(1.19) contrast(0.96);
+        transform: scale(0.8);
+    }
 }

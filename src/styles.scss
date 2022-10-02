@@ -1,24 +1,47 @@
 @import "./styles/shared-styles";
 @import "./styles/font";
 
-* {
+*,
+::before,
+::after {
     box-sizing: border-box;
     background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    outline: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+::before,
+::after {
+    display: block;
 }
 
 html, body {
-    height: 100vh;
     margin: 0;
     display: flex;
 }
 
 body {
-    width: 100%;
+    @include size(100vw, 100vh);
     flex-direction: column;
     box-sizing: border-box;
-    padding-top: env(safe-area-inset-top);
+    overflow: hidden;
 
     &.no-border {
         padding-top: 0;
     }
+}
+
+button {
+    text-align: center;
+    border: none;
+    background-color: transparent;
+    background-position: center;
+    background-size: cover;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    user-select: none;
+    cursor: pointer;
 }
