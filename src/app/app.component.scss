@@ -2,6 +2,7 @@
 
 :host {
     @include size(100%);
+    position: relative;
 }
 
 ::ng-deep {

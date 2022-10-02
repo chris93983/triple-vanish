@@ -4,11 +4,34 @@
     <meta charset="utf-8">
     <title>炒酸奶</title>
     <base href="/">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="format-detection" content="telephone=no">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
     <tv-root></tv-root>
+    <script>
+        window.onload = function() {
+            let lastTouchEnd = performance.now();
+
+            document.addEventListener('touchstart', (event) => {
+                if (event.touches.length > 1) {
+                    event.preventDefault();
+                }
+            });
+
+            document.addEventListener('touchend', (event) =>  {
+                let now = performance.now();
+
+                if (now - lastTouchEnd <= 300) {
+                    event.preventDefault();
+                }
+
+                lastTouchEnd = now;
+            }, false);
+
+            document.addEventListener('gesturestart', (event) => event.preventDefault());
+        }
+    </script>
 </body>
 </html>

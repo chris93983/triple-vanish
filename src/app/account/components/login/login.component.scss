@@ -67,7 +67,7 @@
 }
 
 .btn-login {
-    --width: max(133px, 26vw);
+    --width: min(180px, max(133px, 26vw));
     height: calc(var(--width) / 2.46);
     background-image: url(image-assets("login/btn-login.png"));
     transition: filter $widget-transition, transform $widget-transition;
