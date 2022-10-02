@@ -10,6 +10,28 @@
     }
 }
 
+@keyframes food {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1.0);
+    }
+}
+
+@keyframes food-shown {
+    from {
+        transform: scale(1.0);
+    }
+  
+    to {
+        transform: scale(1.02);
+    }
+}
+
 :host {
     background-image: url(image-assets("login/background.png"));
     overflow: hidden;
@@ -23,6 +45,7 @@
 
 .vine,
 .banner,
+.food-frame,
 .character,
 .character::before,
 .character::after,
@@ -60,6 +83,64 @@
         background-image: url(image-assets("login/title.png"));
         left: 38.29%;
         bottom: 23%;
+    }
+}
+
+.food-frame {
+    --width: min(89.26vw, 46.4vh);
+    --height: min(calc(var(--width) / 1.106), 79.62vh);
+    height: var(--height);
+    z-index: 2;
+    bottom: calc(19vh);
+
+    &::before,
+    &:after {
+        @include size(100%);
+        content: '';
+        transition: opacity $widget-transition;
+        opacity: 0;
+    }
+
+    &::before {
+        background-image: url(image-assets("login/food-light.png"));
+    }
+
+    &::after {
+        background-image: url(image-assets("login/food-with-shadow.png"));
+        transform: translateY(-200%);
+    }
+
+    &.animate {
+        animation: food 0.5s;
+        animation-delay: 0.5s;
+
+        
+    }
+
+    &.show-food {
+        &::before,
+        > .food {
+            opacity: 1;
+        }
+    }
+
+    &.shadow {
+        animation: food-shown 3s infinite alternate-reverse;
+
+        &::before {
+            opacity: 0;
+        }
+
+        &::after {
+            opacity: 1;
+        }
+    }
+
+    > .food {
+        @include size(100%);
+        background-image: url(image-assets("login/food.png"));
+        transform: translateY(-100%);
+        opacity: 0;
     }
 }
 
