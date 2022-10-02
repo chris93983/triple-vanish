@@ -1,1 +1,145 @@
 @import "shared-styles";
+
+@keyframes bottom-cloud {
+    from {
+        transform: translateX(0);
+    }
+  
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes bottom-menu {
+    from {
+        transform: translateY(0);
+    }
+  
+    to {
+        transform: translateY(1vw);
+    }
+}
+
+:host {
+    background-image: url(image-assets("home/background.png"));
+}
+
+.land,
+.land::before,
+.land::after,
+.bottom-cloud,
+.bottom-menu,
+.tree {
+    @extend %layer;
+}
+
+.land {
+    @include size(100vw, 81.28vw);
+    bottom: 0;
+
+    &::before,
+    &::after {
+        content: '';
+    }
+    
+    &::before {
+        @include size(100vw, 60vw);
+        background-image: url(image-assets("home/mountain.png"));
+        transform: translateY(-63%);
+    }
+
+    &::after {
+        @include size(100%);
+        background-image: url(image-assets("home/land.png"));
+    }
+}
+
+.bottom-cloud {
+    @include size(245.25vw, 40.256vw);
+    display: flex;
+    background-image: url(image-assets("home/bottom-cloud.png"));
+    left: 0;
+    bottom: 0;
+    animation: bottom-cloud 30s infinite linear;
+
+    &::after {
+        content: '';
+        @include size(100%);
+        display: block;
+        background-image: inherit;
+        transform: translateX(calc(100% - 0.2px));
+    }
+}
+
+.bottom-menu {
+    @include size(100vw, 29.61vw);
+    display: flex;
+    flex-direction: column;
+    background-image: url(image-assets("home/bottom-menu.png"));
+    padding: 0 5.26vw 2vw;
+    bottom: 0;
+
+    .icon {
+        flex: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+
+        .menu {
+            margin-bottom: 1vw;
+            cursor: pointer;
+            animation: bottom-menu 2s infinite alternate-reverse;
+        }
+
+        .coup {
+            @include size(15.77vw, 17.435vw);
+            background-image: url(image-assets("home/coup.png"));
+            margin-top: -2vw;
+        }
+
+        .go {
+            @include size(16.025vw, 16.41vw);
+            background-image: url(image-assets("home/go.png"));
+            justify-self: center;
+            margin-top: -8vw;
+        }
+
+        .shop {
+            @include size(19.743vw, 20.128vw);
+            background-image: url(image-assets("home/shop.png"));
+            justify-self: end;
+            margin-top: -4vw;
+        }
+    }
+
+    .text {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+}
+
+.text-box {
+    @include size(19.61vw, 5vw);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 99999vw;
+    background-color: #296897;
+    box-shadow: 1px 1px 1px #012769 inset, 0px 2px 1px #05407E inset;
+    border-color: #6497D8;
+    color: #feffff;
+    font-size: 4vw;
+    font-family: '方正粗圆简体';
+    border-style: solid;
+    border-left-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 0;
+    border-right-width: 0;
+}
+
+.tree {
+    --width: 6.79vw;
+    height: 11.15vw;
+    background-image: url(image-assets("home/tree.png"));
+    z-index: 1;
+}

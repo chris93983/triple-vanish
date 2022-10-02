@@ -34,7 +34,6 @@
 
 :host {
     background-image: url(image-assets("login/background.png"));
-    overflow: hidden;
 
     &::before {
         content: '';
@@ -52,8 +51,7 @@
 .banner::before,
 .grass,
 .btn-login {
-    position: absolute;
-    width: var(--width);
+    @extend %layer;
 }
 
 .center {
