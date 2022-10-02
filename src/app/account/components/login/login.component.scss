@@ -1,8 +1,24 @@
 @import "shared-styles";
 
+@keyframes vine {
+    from {
+        transform: scaleY(1.0);
+    }
+  
+    to {
+        transform: scaleY(.95);
+    }
+}
+
 :host {
     background-image: url(image-assets("login/background.png"));
     overflow: hidden;
+
+    &::before {
+        content: '';
+        @include size(100%);
+        background-image: url(image-assets("login/light.png"));
+    }
 }
 
 .vine,
@@ -11,6 +27,7 @@
 .character::before,
 .character::after,
 .banner::before,
+.grass,
 .btn-login {
     position: absolute;
     width: var(--width);
@@ -25,14 +42,16 @@
     height: 45.58vw;
     background-image: url(image-assets("login/vine.png"));
     top: 0;
-    z-index: 3;
+    z-index: 9;
+    transform-origin: center top;
+    animation: vine 2s infinite alternate-reverse;
 }
 
 .banner {
-    --width: 73.52vw;
-    height: 41.5vw;
+    --width: min(73.52vw, 43vh);
+    height: calc(var(--width) *0.5644);
     background-image: url(image-assets("login/banner.png"));
-    top: 5%;
+    top: max(8vh, 5%);
     z-index: 2;
 
     &::before {
@@ -78,4 +97,15 @@
         filter: brightness(1.19) contrast(0.96);
         transform: scale(0.8);
     }
+}
+
+.grass {
+    --width: 100vw;
+    height: calc(var(--width) * 0.5092);
+    background-image: url(image-assets("login/grass.png"));
+    transform-origin: center bottom;
+    animation: vine 2s infinite alternate-reverse;
+    z-index: 8;
+    left: 0;
+    bottom: 0;
 }
