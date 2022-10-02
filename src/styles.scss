@@ -19,19 +19,26 @@
 }
 
 html, body {
+    width: 100vw;
     margin: 0;
     display: flex;
 }
 
+html {
+    height: 100vh;
+}
+
 body {
-    @include size(100vw, 100vh);
+    height: calc(100% - env(safe-area-inset-top));
     flex-direction: column;
     box-sizing: border-box;
     overflow: hidden;
+    transform: translateY(env(safe-area-inset-top));
+}
 
-    &.no-border {
-        padding-top: 0;
-    }
+input,
+button {
+    font-size: 16px;
 }
 
 button {
