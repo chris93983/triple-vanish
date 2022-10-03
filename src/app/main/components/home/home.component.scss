@@ -23,12 +23,12 @@
 }
 
 @keyframes bottom-menu {
-    from {
-        margin-bottom: var(--margin-bottom, 0px)
+    0% {
+        transform: translateY(0);
     }
   
-    to {
-        margin-bottom: calc(var(--margin-bottom, 0px) + 1vw);
+    100% {
+        transform: translateY(1vw);
     }
 }
 
@@ -238,14 +238,11 @@
         margin-bottom: 2vw;
         cursor: pointer;
         animation: bottom-menu 2s infinite alternate-reverse;
-        // grid-template-columns: 21.28vw 38.2vw 21.923vw;
     }
 
     .coup {
         --width: 74.1%;
         --height: 82%;
-        
-        // @include size(15.77vw, 17.435vw, true);
         background-image: url(image-assets("home/coup.png"));
         margin-right: 15%;
     }
@@ -253,15 +250,13 @@
     .go {
         --width: 41.95%;
         --height: 43%;
-        --margin-bottom: 20%;
-        // @include size(16.025vw, 16.6vw, true);
+        margin-bottom: 20%;
         background-image: url(image-assets("home/go.png"));
     }
 
     .shop {
         --width: 90%;
         --height: 90%;
-        // @include size(19.743vw, 20.128vw, true);
         background-image: url(image-assets("home/shop.png"));
         margin-left: 5%;
     }
