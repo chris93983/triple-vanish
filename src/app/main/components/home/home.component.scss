@@ -40,7 +40,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5.51vw 7.17vw;
+    padding: 3.5vw 6vw 0 8vw;
     z-index: 1;
 
     .info {
@@ -56,7 +56,7 @@
             content: '';
             @include size(var(--icon-width), var(--icon-height));
             position: absolute;
-            left: -4vw;
+            left: -3.5vw;
             background-image: var(--info-icon);
         }
 
@@ -73,7 +73,7 @@
 
         &.heart {
             --icon-width: 8.46vw;
-            --icon-height: 7.82vw;
+            --icon-height: calc(var(--icon-width) * 0.9243);
             --info-width: 15.128vw;
             --info-icon: #{url(image-assets("home/heart.png"))};
             
@@ -84,14 +84,14 @@
 
         &.gold {
             --icon-width: 7.05vw;
-            --icon-height: 8.2vw;
+            --icon-height: calc(var(--icon-width) * 1.163);
             --plus-icon: #{url(image-assets("home/plus-green.png"))};
             --info-icon: #{url(image-assets("home/gold.png"))};
         }
 
         &.diamond {
             --icon-width: 7.05vw;
-            --icon-height: 7.69vw;
+            --icon-height: calc(var(--icon-width) * 1.09);
             --plus-icon: #{url(image-assets("home/plus-yellow.png"))};
             --info-icon: #{url(image-assets("home/diamond.png"))};
         }
