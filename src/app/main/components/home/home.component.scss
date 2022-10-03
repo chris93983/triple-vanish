@@ -24,11 +24,11 @@
 
 @keyframes bottom-menu {
     from {
-        transform: translateY(0);
+        margin-bottom: var(--margin-bottom, 0px)
     }
   
     to {
-        transform: translateY(1vw);
+        margin-bottom: calc(var(--margin-bottom, 0px) + 1vw);
     }
 }
 
@@ -244,6 +244,7 @@
     .coup {
         --width: 74.1%;
         --height: 82%;
+        
         // @include size(15.77vw, 17.435vw, true);
         background-image: url(image-assets("home/coup.png"));
         margin-right: 15%;
@@ -252,9 +253,9 @@
     .go {
         --width: 41.95%;
         --height: 43%;
+        --margin-bottom: 20%;
         // @include size(16.025vw, 16.6vw, true);
         background-image: url(image-assets("home/go.png"));
-        margin-bottom: 20%;
     }
 
     .shop {
