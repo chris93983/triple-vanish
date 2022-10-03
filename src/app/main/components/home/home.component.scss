@@ -44,15 +44,23 @@
     }
     
     &::before {
-        @include size(100vw, 60vw);
+        @include size(83.59vw, 41.15vw);
         background-image: url(image-assets("home/mountain.png"));
         transform: translateY(-63%);
+        right: 0;
     }
 
     &::after {
         @include size(100%);
         background-image: url(image-assets("home/land.png"));
     }
+}
+
+.mountain-left {
+    @include size(30.89vw, 57.82vw);
+    background-image: url(image-assets("home/mountain-left.png"));
+    position: absolute;
+    transform: translateY(-68%);
 }
 
 .trees {
