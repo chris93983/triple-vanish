@@ -148,6 +148,7 @@
         content: '';
         @include size(100%);
         background-image: url(image-assets("login/character.png"));
+        left: 0 !important;
         z-index: 2;
     }
 
