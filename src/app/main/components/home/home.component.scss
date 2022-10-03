@@ -231,6 +231,13 @@
         margin-left: 3.59%;
     }
 
+    .inner {
+        @include size(100%);
+        background-image: var(--background-image);
+        position: absolute;
+        top: 0;
+    }
+
     .menu {
         width: var(--width);
         height: 0;
@@ -243,7 +250,7 @@
     .coup {
         --width: 74.1%;
         --height: 82%;
-        background-image: url(image-assets("home/coup.png"));
+        --background-image: #{url(image-assets("home/coup.png"))};
         margin-right: 15%;
     }
 
@@ -251,13 +258,13 @@
         --width: 41.95%;
         --height: 43%;
         margin-bottom: 20%;
-        background-image: url(image-assets("home/go.png"));
+        --background-image: #{url(image-assets("home/go.png"))};
     }
 
     .shop {
         --width: 90%;
         --height: 90%;
-        background-image: url(image-assets("home/shop.png"));
+        --background-image: #{url(image-assets("home/shop.png"))};
         margin-left: 5%;
     }
 }
