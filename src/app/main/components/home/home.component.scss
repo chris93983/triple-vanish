@@ -166,13 +166,14 @@
             color: #038ebb;
             font-family: '方正粗圆简体';
             white-space: nowrap;
-            margin-top: calc(var(--menu-size) / 10);
+            position: absolute;
+            margin-top: calc(100% + var(--menu-size) / 10);
             font-size: calc(var(--menu-size) * 0.28);
             text-shadow: 0 0 var(--shadow-depth) white, 0 0 var(--shadow-depth) white, 0 0 var(--shadow-depth) white, 0 0 var(--shadow-depth) white, 0 0 var(--shadow-depth) white, 0 0 var(--shadow-depth) white, 0 0 var(--shadow-depth) white, 0 0 var(--shadow-depth) white;
         }
 
         &:nth-of-type(3)::after {
-            transform: translateX(-5%);
+            transform: translateX(-8%);
         }
 
         &:not(:first-child) {
