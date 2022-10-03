@@ -42,3 +42,13 @@ button {
     user-select: none;
     cursor: pointer;
 }
+
+.btn-light {
+    transition: filter $widget-transition, transform $widget-transition;
+
+    &:active {
+        --scale: 0.8;
+        filter: brightness(1.19) contrast(0.96);
+        transform: scale(var(--scale));
+    }
+}

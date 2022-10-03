@@ -83,21 +83,22 @@
         flex: 1;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+        animation: bottom-menu 2s infinite alternate-reverse;
 
         .menu {
             margin-bottom: 1vw;
             cursor: pointer;
-            animation: bottom-menu 2s infinite alternate-reverse;
         }
 
         .coup {
             @include size(15.77vw, 17.435vw);
             background-image: url(image-assets("home/coup.png"));
-            margin-top: -2vw;
+            margin-top: -3vw;
+            margin-left: 1vw;
         }
 
         .go {
-            @include size(16.025vw, 16.41vw);
+            @include size(16.025vw, 16.6vw);
             background-image: url(image-assets("home/go.png"));
             justify-self: center;
             margin-top: -8vw;
