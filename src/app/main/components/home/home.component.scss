@@ -1,5 +1,17 @@
 @import "shared-styles";
 
+%text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999vw;
+    background-color: #296897;
+    color: white;
+    font-size: 3.5vw;
+    font-family: '方正粗圆简体';
+    text-align: center;
+}
+
 @keyframes bottom-cloud {
     from {
         transform: translateX(0);
@@ -22,6 +34,65 @@
 
 :host {
     background-image: url(image-assets("home/background.png"));
+}
+
+.top-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5.51vw 7.17vw;
+
+    .info {
+        width: var(--info-width, 20.897vw);
+        height: 5.384vw;
+        border: solid 1px #bcddf0;
+        position: relative;
+        box-shadow: 0 -1px 1px #2a537b inset;
+        @extend %text;
+        text-indent: -2vw;
+
+        &::before {
+            content: '';
+            @include size(var(--icon-width), var(--icon-height));
+            position: absolute;
+            left: -4vw;
+            background-image: var(--info-icon);
+        }
+
+        .plus {
+            @include size(5.64vw);
+            background-image: var(--plus-icon);
+            position: absolute;
+            right: 0;
+        }
+
+        &.heart {
+            --icon-width: 8.46vw;
+            --icon-height: 7.82vw;
+            --info-width: 15.128vw;
+            --info-icon: #{url(image-assets("home/heart.png"))};
+            text-indent: 2vw;
+        }
+
+        &.gold {
+            --icon-width: 7.05vw;
+            --icon-height: 8.2vw;
+            --plus-icon: #{url(image-assets("home/plus-green.png"))};
+            --info-icon: #{url(image-assets("home/gold.png"))};
+        }
+
+        &.diamond {
+            --icon-width: 7.05vw;
+            --icon-height: 7.69vw;
+            --plus-icon: #{url(image-assets("home/plus-yellow.png"))};
+            --info-icon: #{url(image-assets("home/diamond.png"))};
+        }
+    }
+
+    .setting {
+        @include size(9.1vw, 9.23vw);
+        background-image: url(image-assets("home/setting.png"));
+    }
 }
 
 .land,
@@ -153,16 +224,9 @@
 
 .text-box {
     @include size(19.61vw, 5vw);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 99999vw;
-    background-color: #296897;
     box-shadow: 1px 1px 1px #012769 inset, 0px 2px 1px #05407E inset;
     border-color: #6497D8;
-    color: #feffff;
-    font-size: 3.5vw;
-    font-family: '方正粗圆简体';
+    @extend %text;
     border-style: solid;
     border-left-width: 1px;
     border-top-width: 1px;
