@@ -29,7 +29,8 @@
 .land::after,
 .bottom-cloud,
 .bottom-menu,
-.tree {
+.tree,
+.trees {
     @extend %layer;
 }
 
@@ -52,6 +53,29 @@
         @include size(100%);
         background-image: url(image-assets("home/land.png"));
     }
+}
+
+.trees {
+    @include size(100vw, 36.15vw);
+    background-image: url(image-assets("home/trees.png"));
+    transform: translateY(-27%);
+    z-index: 1;
+}
+
+.yogurt {
+    @include size(71.02vw, 44.61vw);
+    background-image: url(image-assets("home/yogurt.png"));
+    position: absolute;
+    transform: translate(8vw, -9vw);
+    z-index: 1;
+}
+
+.tree {
+    --width: 6.79vw;
+    height: 11.15vw;
+    background-image: url(image-assets("home/tree.png"));
+    transform: translate(27vw, 24.5vw);
+    z-index: 1;
 }
 
 .bottom-cloud {
@@ -136,11 +160,4 @@
     border-top-width: 1px;
     border-bottom-width: 0;
     border-right-width: 0;
-}
-
-.tree {
-    --width: 6.79vw;
-    height: 11.15vw;
-    background-image: url(image-assets("home/tree.png"));
-    z-index: 1;
 }
