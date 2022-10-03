@@ -54,10 +54,6 @@
     @extend %layer;
 }
 
-.center {
-    left: calc((100vw - var(--width)) / 2);
-}
-
 .vine {
     --width: 100%;
     height: 45.58vw;

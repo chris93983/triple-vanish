@@ -183,61 +183,101 @@
 }
 
 .bottom-menu {
-    @include size(100vw, 29.61vw);
+    @include size(100vw, 25.64vw);
     display: flex;
     flex-direction: column;
     background-image: url(image-assets("home/bottom-menu.png"));
-    padding: 0 5.26vw 2vw;
     bottom: 0;
 
-    .icon {
-        flex: 1;
+    .holes {
+        --menu-width: min(81.4vw, 550px);
+        width: var(--menu-width);
+        height: calc(var(--menu-width) * 0.21794);
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        animation: bottom-menu 2s infinite alternate-reverse;
-
-        .menu {
-            margin-bottom: 1vw;
-            cursor: pointer;
-        }
-
-        .coup {
-            @include size(15.77vw, 17.435vw);
-            background-image: url(image-assets("home/coup.png"));
-            margin-top: -3vw;
-            margin-left: 1vw;
-        }
-
-        .go {
-            @include size(16.025vw, 16.6vw);
-            background-image: url(image-assets("home/go.png"));
-            justify-self: center;
-            margin-top: -8vw;
-        }
-
-        .shop {
-            @include size(19.743vw, 20.128vw);
-            background-image: url(image-assets("home/shop.png"));
-            justify-self: end;
-            margin-top: -4vw;
-        }
+        grid-template-columns: 26.14% 46.928% 26.93%;
+        grid-template-rows: 100%;
+        align-self: center;
+        position: absolute;
+        bottom: calc(var(--menu-width) / 10.5);
     }
 
-    .text {
+    .hole {
+        width: 100%;
+        height: var(--hole-height);
         display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        align-self: flex-end;
+    }
+
+    .hole-left {
+        --hole-height: 75.857%;
+        background-image: url(image-assets("home/hole-left.png"));
+        justify-self: flex-end;
+        margin-right: 4.48%;
+    }
+
+    .hole-center {
+        --hole-height: 123%;
+        background-image: url(image-assets("home/hole-center.png"));
+        justify-self: center;
+    }
+
+    .hole-right {
+        --hole-height: 78.037%;
+        background-image: url(image-assets("home/hole-right.png"));
+        justify-self: flex-start;
+        margin-left: 3.59%;
+    }
+
+    .menu {
+        width: var(--width);
+        height: 0;
+        padding-top: var(--height);
+        margin-bottom: 2vw;
+        cursor: pointer;
+        animation: bottom-menu 2s infinite alternate-reverse;
+        // grid-template-columns: 21.28vw 38.2vw 21.923vw;
+    }
+
+    .coup {
+        --width: 74.1%;
+        --height: 82%;
+        // @include size(15.77vw, 17.435vw, true);
+        background-image: url(image-assets("home/coup.png"));
+        margin-right: 15%;
+    }
+
+    .go {
+        --width: 41.95%;
+        --height: 43%;
+        // @include size(16.025vw, 16.6vw, true);
+        background-image: url(image-assets("home/go.png"));
+        margin-bottom: 20%;
+    }
+
+    .shop {
+        --width: 90%;
+        --height: 90%;
+        // @include size(19.743vw, 20.128vw, true);
+        background-image: url(image-assets("home/shop.png"));
+        margin-left: 5%;
     }
 }
 
 .text-box {
-    @include size(19.61vw, 5vw);
+    @include size(calc(var(--menu-width) * 0.24), calc(var(--menu-width) * 0.0614));
+    min-width: calc(var(--menu-width) * 0.24);
+    min-height: calc(var(--menu-width) * 0.0614);
     box-shadow: 1px 1px 1px #012769 inset, 0px 2px 1px #05407E inset;
     border-color: #6497D8;
     @extend %text;
+    font-size: calc(var(--menu-width) * 0.043);
     border-style: solid;
     border-left-width: 1px;
     border-top-width: 1px;
     border-bottom-width: 0;
     border-right-width: 0;
+    transform: translateY(calc(var(--menu-width) * 0.0675));
 }

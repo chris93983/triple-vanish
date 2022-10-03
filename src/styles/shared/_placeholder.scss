@@ -1,4 +1,8 @@
 %layer {
     position: absolute;
     width: var(--width);
+
+    &.center {
+        left: calc((100vw - var(--width)) / 2);
+    }
 }
