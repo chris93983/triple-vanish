@@ -75,7 +75,7 @@
         content: '';
         @include size(23.42%, 12.98%);
         background-image: url(image-assets("login/title.png"));
-        left: 38.29%;
+        left: 38.29% !important;
         bottom: 23%;
     }
 }
