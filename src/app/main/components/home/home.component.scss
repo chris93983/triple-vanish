@@ -128,6 +128,83 @@
     }
 }
 
+.main-menus {
+    --margin-side: 5vw;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 2;
+    top: 21vw;
+
+    &.left {
+        left: var(--margin-side);
+    }
+
+    &.right {
+        right: var(--margin-side);
+    }
+
+    .main-menu {
+        --menu-size: min(13vw, 70px);
+        @include size(var(--menu-size), var(--menu-size), true);
+        display: grid;
+        grid-template-rows: 100% 1fr;
+
+        &::before {
+            content: '';
+            @include size(100%);
+            @extend %btn-light;
+            background-image: var(--main-menu-icon);
+            background-size: contain;
+        }
+
+        &::after {
+            --shadow-depth: calc(var(--menu-size) / 12.5);
+            content: attr(text);
+            width: 100%;
+            text-align: center;
+            color: #038ebb;
+            font-family: '方正粗圆简体';
+            white-space: nowrap;
+            margin-top: calc(var(--menu-size) / 10);
+            font-size: calc(var(--menu-size) * 0.28);
+            text-shadow: 0 0 var(--shadow-depth) white, 0 0 var(--shadow-depth) white, 0 0 var(--shadow-depth) white, 0 0 var(--shadow-depth) white, 0 0 var(--shadow-depth) white, 0 0 var(--shadow-depth) white, 0 0 var(--shadow-depth) white, 0 0 var(--shadow-depth) white;
+        }
+
+        &:nth-of-type(3)::after {
+            transform: translateX(-5%);
+        }
+
+        &:not(:first-child) {
+            margin-top: calc(var(--menu-size) * 0.7);
+        }
+    }
+
+    .task {
+        --main-menu-icon: #{url(image-assets("home/task.png"))};
+    }
+    
+    .mail {
+        --main-menu-icon: #{url(image-assets("home/mail.png"))};
+    }
+    
+    .sign {
+        --main-menu-icon: #{url(image-assets("home/sign.png"))};
+    }
+
+    .bag {
+        --main-menu-icon: #{url(image-assets("home/bag.png"))};
+    }
+
+    .map {
+        --main-menu-icon: #{url(image-assets("home/map.png"))};
+    }
+
+    .egg {
+        --main-menu-icon: #{url(image-assets("home/egg.png"))};
+    }
+}
+
 .land {
     @include size(100vw, 81.28vw);
     bottom: 0;
