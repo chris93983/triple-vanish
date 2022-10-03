@@ -194,7 +194,7 @@
     background-image: url(image-assets("home/bottom-cloud.png"));
     left: 0;
     bottom: 0;
-    animation: borrom-cloud 60s infinite linear;
+    animation: bottom-cloud 60s infinite linear;
 
     &::after {
         content: '';
