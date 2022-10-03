@@ -11,6 +11,16 @@
     text-align: center;
 }
 
+@keyframes cloud {
+    from {
+        transform: translateX(0);
+    }
+  
+    to {
+        transform: translateX(-250%);
+    }
+}
+
 @keyframes bottom-cloud {
     from {
         transform: translateX(0);
@@ -42,7 +52,8 @@
 .bottom-cloud,
 .bottom-menu,
 .tree,
-.trees {
+.trees,
+.cloud {
     @extend %layer;
 }
 
@@ -139,6 +150,14 @@
     }
 }
 
+.cloud {
+    @include size(77.43vw, 29.615vw);
+    background-image: url(image-assets("home/cloud.png"));
+    z-index: 1;
+    margin: -30% 100%;
+    animation: cloud 60s infinite linear;
+}
+
 .mountain-left {
     @include size(30.89vw, 57.82vw);
     background-image: url(image-assets("home/mountain-left.png"));
@@ -175,7 +194,7 @@
     background-image: url(image-assets("home/bottom-cloud.png"));
     left: 0;
     bottom: 0;
-    animation: bottom-cloud 60s infinite linear;
+    animation: borrom-cloud 60s infinite linear;
 
     &::after {
         content: '';
