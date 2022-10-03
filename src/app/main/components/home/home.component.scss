@@ -41,6 +41,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 5.51vw 7.17vw;
+    z-index: 1;
 
     .info {
         width: var(--info-width, 20.897vw);
@@ -49,7 +50,7 @@
         position: relative;
         box-shadow: 0 -1px 1px #2a537b inset;
         @extend %text;
-        text-indent: -2vw;
+        
 
         &::before {
             content: '';
@@ -57,6 +58,10 @@
             position: absolute;
             left: -4vw;
             background-image: var(--info-icon);
+        }
+
+        .text {
+            text-indent: -2vw;
         }
 
         .plus {
@@ -71,7 +76,10 @@
             --icon-height: 7.82vw;
             --info-width: 15.128vw;
             --info-icon: #{url(image-assets("home/heart.png"))};
-            text-indent: 2vw;
+            
+            .text {
+                text-indent: 2vw;
+            }
         }
 
         &.gold {
