@@ -6,8 +6,6 @@
     justify-content: center;
     border-radius: 9999vw;
     background-color: #296897;
-    color: white;
-    font-family: '方正粗圆简体';
     text-align: center;
 }
 
@@ -159,7 +157,8 @@
         }
 
         &::after {
-            --shadow-depth: calc(var(--menu-size) / 12.5);
+            --shadow-color: white;
+            --shadow-depth: 0.1vw;
             content: attr(text);
             width: 100%;
             text-align: center;
@@ -169,7 +168,7 @@
             position: absolute;
             margin-top: calc(100% + var(--menu-size) / 10);
             font-size: calc(var(--menu-size) * 0.28);
-            text-shadow: 0 0 var(--shadow-depth) white, 0 0 var(--shadow-depth) white, 0 0 var(--shadow-depth) white, 0 0 var(--shadow-depth) white, 0 0 var(--shadow-depth) white, 0 0 var(--shadow-depth) white, 0 0 var(--shadow-depth) white, 0 0 var(--shadow-depth) white;
+            @include text-border(var(--shadow-color), var(--shadow-depth));
         }
 
         &:nth-of-type(3)::after {

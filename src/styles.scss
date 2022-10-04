@@ -29,6 +29,8 @@ body {
     flex-direction: column;
     box-sizing: border-box;
     overflow: hidden;
+    font-family: '方正粗圆简体';
+    color: white;
 }
 
 button {
@@ -40,6 +42,8 @@ button {
     white-space: nowrap;
     text-overflow: ellipsis;
     user-select: none;
+    color: inherit;
+    padding: 0;
     cursor: pointer;
 }
 

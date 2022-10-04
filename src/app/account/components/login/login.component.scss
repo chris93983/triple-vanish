@@ -162,11 +162,40 @@
 }
 
 .btn-login {
+    --shadow-color: #209a26;
+    --shadow-depth: 0.11vw;
     --width: min(180px, max(133px, 26vw));
-    height: calc(var(--width) / 2.46);
-    background-image: url(image-assets("login/btn-login.png"));
-    bottom: calc(20px + 4vw);
+    --height: calc(var(--width) / 2.768817);
+    height: var(--height);
+    bottom: calc(30px + 4vw);
     z-index: 9;
+    font-size: min(5vw, 25px);
+    @include text-border(var(--shadow-color), var(--shadow-depth));
+    overflow: visible;
+
+    &::before,
+    &::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        @include size(100%);
+    }
+    
+    &::before {
+        content: '';
+        filter: drop-shadow(0.00000001px calc(var(--height) * 0.141) 0.000000001px rgba(#17162a, 0.30));
+        background-image: url(image-assets("login/btn-login.png"));
+    }
+
+    &::after {
+        content: attr(text);
+        @include size(100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 1.4vw;
+    }
 }
 
 .grass {
