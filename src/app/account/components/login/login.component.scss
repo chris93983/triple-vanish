@@ -32,6 +32,16 @@
     }
 }
 
+@keyframes fix-shadow {
+    from {
+        filter: drop-shadow(0px calc(var(--height) * 0.141) 1px rgba(#17162a, 0.30));
+    }
+  
+    to {
+        filter: drop-shadow(0.0001px calc(var(--height) * 0.141) 1px rgba(#17162a, 0.30));
+    }
+}
+
 :host {
     background-image: url(image-assets("login/background.png"));
 
@@ -157,15 +167,17 @@
         @include size(121.41%, 56.02%);
         background-image: url(image-assets("login/character-shadow.png"));
         transform: translate(34%, 170%);
+        left: 0 !important;
         z-index: 1;
     }
 }
 
 .btn-login {
     --shadow-color: #209a26;
-    --shadow-depth: 0.11vw;
+    --shadow-depth: min(0.11vw, 1px);
     --width: min(180px, max(133px, 26vw));
     --height: calc(var(--width) / 2.768817);
+    // --shadow-x: 0px;
     height: var(--height);
     bottom: calc(30px + 4vw);
     z-index: 9;
@@ -184,7 +196,7 @@
     
     &::before {
         content: '';
-        filter: drop-shadow(0.00000001px calc(var(--height) * 0.141) 0.000000001px rgba(#17162a, 0.30));
+        animation: fix-shadow 100s infinite;
         background-image: url(image-assets("login/btn-login.png"));
     }
 
@@ -194,7 +206,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding-bottom: 1.4vw;
+        padding-bottom: 6%;
     }
 }
 
