@@ -175,13 +175,12 @@
 .btn-login {
     --shadow-color: #209a26;
     --shadow-depth: min(0.11vw, 1px);
-    --width: min(180px, max(133px, 26vw));
+    --width: min(180px, 26vw);
     --height: calc(var(--width) / 2.768817);
-    // --shadow-x: 0px;
     height: var(--height);
-    bottom: calc(30px + 4vw);
+    bottom: min(6.5%, calc(30px + 4vw));
     z-index: 9;
-    font-size: min(5vw, 25px);
+    font-size: calc(var(--width) * 0.13888);
     @include text-border(var(--shadow-color), var(--shadow-depth));
     overflow: visible;
 
