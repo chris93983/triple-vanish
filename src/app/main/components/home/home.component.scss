@@ -250,12 +250,23 @@
     z-index: 1;
 }
 
-.yogurt {
-    @include size(71.02vw, 44.61vw);
-    background-image: url(image-assets("home/yogurt.png"));
+.yogurt-front,
+.yogurt-back {
     position: absolute;
-    transform: translate(8vw, -9vw);
     z-index: 1;
+}
+
+.yogurt-front {
+    @include size(24.487vw, 27.82vw);
+    background-image: url(image-assets("home/yogurt-front.png"));
+    transform: translate(8vw, 7vw);
+    
+}
+
+.yogurt-back {
+    @include size(14.359vw, 17.4359vw);
+    background-image: url(image-assets("home/yogurt-back.png"));
+    transform: translate(62vw, -8.5vw);
 }
 
 .tree {
