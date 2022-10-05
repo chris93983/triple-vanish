@@ -66,15 +66,17 @@
         content: '';
         @include size(100%);
         background-image: url(image-assets('banner.png'));
-        background-size: initial;
+        background-size: min(361px, 70vw);
         background-position: center 25%;
         position: absolute;
     }
 
     .progress-frame {
-        --width: 80vw;
+        --width: min(80vw, 480px);
         --height: calc(var(--width) * 0.089783);
         --border-width: 1vw;
+        --shadow-size: calc(var(--width) * 0.00375);
+        --padding: calc(var(--width) * 0.00625);
         width: var(--width);
         height: var(--height);
         position: absolute;
@@ -83,8 +85,8 @@
         border-radius: 99999vw;
         border: solid var(--border-width) #F1C175;
         background-color: #BC8544;
-        padding: 0.5vw;
-        box-shadow: 0.3vw 0.3vw 0.3vw #865020 inset;
+        padding: var(--padding);
+        box-shadow: var(--shadow-size) var(--shadow-size) var(--shadow-size) #865020 inset;
         animation: fix-shadow 100s infinite;
 
         &::before {
@@ -97,8 +99,8 @@
 
     .progress {
         --progress: 0;
-        width: calc(var(--progress) * 0.99);
-        height: calc(100% - 1vw);
+        width: calc(var(--progress) * 0.987);
+        height: calc(100% - var(--padding) * 2);
         transform: translateY(-100%);
         border-radius: 99999vw;
         position: absolute;
@@ -117,7 +119,7 @@
 
         &::after {
             --stroke: #{rgba(200, 255, 202, 0.3)};
-            --space: 1.5vw;
+            --space: calc(var(--width) * 0.01875);
             width: 120%;
             background-image: repeating-linear-gradient(114deg, var(--stroke) 0, var(--stroke) var(--space), transparent var(--space), transparent calc(var(--space) * 2));
             animation: progress 1.5s infinite linear;
