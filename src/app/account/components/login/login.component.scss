@@ -32,7 +32,7 @@
     }
 }
 
-@keyframes fix-shadow {
+@keyframes fix-shadow-login {
     from {
         filter: drop-shadow(0px calc(var(--height) * 0.141) 1px rgba(#17162a, 0.30));
     }
@@ -193,7 +193,7 @@
     
     &::before {
         content: '';
-        animation: fix-shadow 100s infinite;
+        animation: fix-shadow-login 100s infinite linear;
         background-image: var(--login-btn-login);
     }
 

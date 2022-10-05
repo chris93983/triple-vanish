@@ -1,15 +1,5 @@
 @import "shared-styles";
 
-@keyframes fix-shadow {
-    from {
-        filter: drop-shadow(0px calc(var(--height) * 0.12) 0px #865020);
-    }
-  
-    to {
-        filter: drop-shadow(0.0001px calc(var(--height) * 0.12) 0px #865020);
-    }
-}
-
 @keyframes progress {
     from {
         transform: translate(-3vw, -100%);

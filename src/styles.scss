@@ -1,6 +1,16 @@
 @import "./styles/shared-styles";
 @import "./styles/font";
 
+@keyframes fix-shadow-loading {
+    from {
+        filter: drop-shadow(0px calc(var(--height) * 0.12) 0px #865020);
+    }
+  
+    to {
+        filter: drop-shadow(0.0001px calc(var(--height) * 0.12) 0px #865020);
+    }
+}
+
 *,
 ::before,
 ::after {
@@ -71,7 +81,7 @@ button {
     background-color: #BC8544;
     padding: var(--padding);
     box-shadow: var(--shadow-size) var(--shadow-size) var(--shadow-size) #865020 inset;
-    animation: fix-shadow 100s infinite;
+    animation: fix-shadow-loading 100s infinite linear;
 
     &::before {
         content: '';
