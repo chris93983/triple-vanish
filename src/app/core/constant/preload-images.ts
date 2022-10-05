@@ -54,4 +54,22 @@ export const PRELOAD_IMAGES: PreloadImages = Object.freeze({
         ['--home-go']: 'home/go.png',
         ['--home-shop']: 'home/shop.png',
     },
+    ['/main/game']: {
+        ['--game-battle-field']: 'game/battle-field.png',
+        ['--game-bar-wood']: 'game/bar-wood.png',
+        ['--game-hint-board']: 'game/hint-board.png',
+        ['--game-grass']: 'game/grass.png',
+        ['--game-tool']: 'game/tool.svg',
+        ['--game-plier']: 'game/plier.png',
+        ['--game-air-blower']: 'game/air-blower.png',
+        ['--game-rabbler']: 'game/rabbler.png',
+        // ['--game-battle-field']: 'game/battle-field.png',
+        // ['--game-battle-field']: 'game/battle-field.png',
+        // ['--game-battle-field']: 'game/battle-field.png',
+        // ['--game-battle-field']: 'game/battle-field.png',
+        // ['--game-battle-field']: 'game/battle-field.png',
+        // ['--game-battle-field']: 'game/battle-field.png',
+        // ['--game-battle-field']: 'game/battle-field.png',
+        // ['--game-battle-field']: 'game/battle-field.png',
+    }
 });

@@ -12,7 +12,7 @@ import { DeviceService } from './core/services/device.service';
 })
 export class AppComponent implements OnInit {
     @ViewChild('progress') progress: ElementRef<HTMLElement> | undefined;
-    loading = true;
+    loading = false;
 
     constructor(private deviceService: DeviceService, private router: Router) { }
 
@@ -22,22 +22,20 @@ export class AppComponent implements OnInit {
         }
 
         this.router.events.subscribe(async (event) => {
-            if (event instanceof NavigationStart) {
-                this.loading = true;
-            } else if (event instanceof NavigationEnd) {
-                console.log('url', this.router.url);
-                await this.loadBackground();
+            if (event instanceof NavigationEnd) {
+                await this.loadMaterialImages();
             }
         });
     }
 
-    private async loadBackground(): Promise<void> {
+    private async loadMaterialImages(): Promise<void> {
         const imageUrls = PRELOAD_IMAGES[this.router.url];
 
         if (imageUrls) {
             const entries = Object.entries(imageUrls);
 
             if (entries?.length) {
+                this.loading = true;
                 const promises: Promise<any>[] = [];
                 const progressPerEntry = 1 / entries.length;
                 let completedItemCount = 0;

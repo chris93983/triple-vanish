@@ -1,0 +1,114 @@
+@import "shared-styles";
+
+:host {
+    --battle-field-y: min(118.076vw, 65.7vh);
+    background-image: linear-gradient(180deg, #9EC7F3 0, #2CF0EA 53.846%);
+}
+
+.hint-board,
+.battle-field .grass {
+    @extend %layer;
+}
+
+.bar {
+    --bar-height: 19.23vw;
+    @include size(100%, var(--bar-height));
+    background-image: var(--game-bar-wood);
+    position: absolute;
+    bottom: calc(var(--battle-field-y) - var(--bar-height) * 0.92);
+    z-index: 1;
+
+    .hint-board {
+        --width: 53.846vw;
+        height: calc(var(--width) * 0.2738);
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: center;
+        background-image: var(--game-hint-board);
+        padding: 33px 26px 24px;
+
+        .fruit {
+
+        }
+    }
+}
+
+.fruit {
+
+}
+
+.battle-field {
+    @include size(100%, var(--battle-field-y));
+    background-image: var(--game-battle-field);
+    position: absolute;
+    bottom: 0;
+
+    .grass {
+        --height: min(28.917vw, 12vh);
+        --width: 100%;
+        --grass-width: var(--width);
+        height: var(--height);
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        background-image: var(--game-grass);
+        background-position: center top;
+        position: absolute;
+        padding-bottom: calc(var(--grass-width) * 0.032301);
+        bottom: 0;
+
+        .tool {
+            --tool-size: calc(var(--height) * 0.594);
+            content: '';
+            @include size(var(--tool-size), var(--tool-size), true);
+            position: relative;
+
+            &.plier {
+                --tool-icon: var(--game-plier);
+            }
+
+            &.air-blower {
+                --tool-icon: var(--game-air-blower);
+                margin: 0 15%;
+            }
+
+            &.rabbler {
+                --tool-icon: var(--game-rabbler);
+            }
+
+            &::before,
+            &::after {
+                content: '';
+                @include size(100%);
+                position: absolute;
+                z-index: 2;
+            }
+
+            &::before {
+                background-image: var(--game-tool);
+            }
+
+            &::after {
+                $color: #131313;
+                $depth: 0.00001vw;
+                background-image: var(--tool-icon);
+                background-size: contain;
+                filter:
+                    drop-shadow(calc(#{$depth}) 0 #{$depth} #{$color})
+                    drop-shadow(0 calc(#{$depth}) #{$depth} #{$color})
+                    drop-shadow(calc(0px - #{$depth}) 0 #{$depth} #{$color})
+                    drop-shadow(0 calc(0px - #{$depth}) #{$depth} #{$color})
+                    drop-shadow(0.3vw 0.5vw 0.5px rgba($color, 0.84));
+            }
+
+            .shadow {
+                content: '';
+                @include size(165%, 96.731%);
+                background-image: linear-gradient(101.79deg, #0D3A29 12.07%, rgba(13, 58, 41, 0) 65.51%);
+                transform: rotate(55.76deg) translate(48%, 29%);
+                position: absolute;
+                z-index: 1;
+            }
+        }
+    }
+}

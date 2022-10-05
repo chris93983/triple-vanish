@@ -20,6 +20,14 @@
         calc(#{$depth} * 2) calc(0px - #{$depth} * 2) #{$depth} #{$color};
 }
 
+@mixin drop-border($color, $depth) {
+    filter:
+        drop-shadow(calc(#{$depth}) 0 #{$depth} #{$color})
+        drop-shadow(0 calc(#{$depth}) #{$depth} #{$color})
+        drop-shadow(calc(0px - #{$depth}) 0 #{$depth} #{$color})
+        drop-shadow(0 calc(0px - #{$depth}) #{$depth} #{$color});
+}
+
 @mixin circle-mask($radius: 36px, $stroke-width: 0px) {
     mask: url('data:image/svg+xml;utf8,<svg viewBox="0 0 #{$radius} #{$radius}" xmlns="http://www.w3.org/2000/svg"><circle cx="50%" cy="50%" r="50%" fill="red" stroke="red" stroke-width="#{$stroke-width * 2}" vector-effect="non-scaling-stroke" /></svg>');
 }
