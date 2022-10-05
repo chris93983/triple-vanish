@@ -32,7 +32,6 @@ export class AppComponent implements OnInit {
     }
 
     private async loadBackground(): Promise<void> {
-        this.updateLoadingProgress();
         const imageUrls = PRELOAD_IMAGES[this.router.url];
 
         if (imageUrls) {
@@ -63,6 +62,7 @@ export class AppComponent implements OnInit {
                 await Promise.all(promises);
                 await new Promise(resolve => setTimeout(resolve, 200));
                 this.loading = false;
+                this.updateLoadingProgress();
             }
         }
     }
