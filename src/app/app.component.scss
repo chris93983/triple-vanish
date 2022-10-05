@@ -1,8 +1,128 @@
 @import "shared-styles";
 
+@keyframes fix-shadow {
+    from {
+        filter: drop-shadow(0px calc(var(--height) * 0.12) 0px #865020);
+    }
+  
+    to {
+        filter: drop-shadow(0.0001px calc(var(--height) * 0.12) 0px #865020);
+    }
+}
+
+@keyframes loading {
+    from {
+        transform: scale(1) translate(0);
+    }
+  
+    to {
+        transform: scale(2) translate(0, -33%);
+    }
+}
+
+@keyframes progress {
+    from {
+        transform: translate(-3vw, -100%);
+    }
+  
+    to {
+        transform: translate(0, -100%);
+    }
+}
+
 :host {
     @include size(100%);
     position: relative;
+}
+
+.loading {
+    @include size(100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 999999999999999999;
+    --color-1: transparent;
+    --color-2: #{rgba(#a7d0fa, 0.67)};
+    --color-3: #fff;
+    --color-4: #d3e9ff;
+    --grid-size: 12.5vmin;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        @include size(200%, 200%);
+        // animation: loading 2s infinite alternate-reverse linear;
+        transform-origin: left top;
+        background-color: white;
+        background-image:
+            repeating-linear-gradient(90deg, var(--color-1) calc(var(--grid-size) * -0.5), var(--color-1) calc(var(--grid-size) * 0.5), var(--color-2) calc(var(--grid-size) * 0.5), var(--color-2) calc(var(--grid-size) * 1.5)),
+            repeating-linear-gradient(180deg, var(--color-3) calc(var(--grid-size) * 0.5), var(--color-3)calc(var(--grid-size) * 1.5), var(--color-4)calc(var(--grid-size) * 1.5), var(--color-4) calc(var(--grid-size) * 2.5));
+    }
+
+    &::after {
+        content: '';
+        @include size(100%);
+        background-image: url(image-assets('banner.png'));
+        background-size: initial;
+        background-position: center 25%;
+        position: absolute;
+    }
+
+    .progress-frame {
+        --width: 80vw;
+        --height: calc(var(--width) * 0.089783);
+        --border-width: 1vw;
+        width: var(--width);
+        height: var(--height);
+        position: absolute;
+        top: 65%;
+        z-index: 1;
+        border-radius: 99999vw;
+        border: solid var(--border-width) #F1C175;
+        background-color: #BC8544;
+        padding: 0.5vw;
+        box-shadow: 0.3vw 0.3vw 0.3vw #865020 inset;
+        animation: fix-shadow 100s infinite;
+
+        &::before {
+            content: '';
+            @include size(100%);
+            border-radius: 99999vw;
+            background-color: #865020;
+        }
+    }
+
+    .progress {
+        --progress: 0;
+        width: calc(var(--progress) * 0.99);
+        height: calc(100% - 1vw);
+        transform: translateY(-100%);
+        border-radius: 99999vw;
+        position: absolute;
+        overflow: hidden;
+
+        &::before,
+        &::after {
+            content: '';
+            border-radius: 99999vw;
+            @include size(100%);
+        }
+
+        &::before {
+            background-image: linear-gradient(180deg, rgba(208, 255, 192, 0.972549) 0%, #4ddb00 51.56%, #E1FF27 100%);
+        }
+
+        &::after {
+            --stroke: #{rgba(200, 255, 202, 0.3)};
+            --space: 1.5vw;
+            width: 120%;
+            background-image: repeating-linear-gradient(114deg, var(--stroke) 0, var(--stroke) var(--space), transparent var(--space), transparent calc(var(--space) * 2));
+            animation: progress 1.5s infinite linear;
+        }
+    }
 }
 
 ::ng-deep {

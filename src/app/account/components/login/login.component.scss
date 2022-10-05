@@ -43,12 +43,12 @@
 }
 
 :host {
-    background-image: url(image-assets("login/background.png"));
+    background-image: var(--login-background);
 
     &::before {
         content: '';
         @include size(100%);
-        background-image: url(image-assets("login/light.png"));
+        background-image: var(--login-light);
     }
 }
 
@@ -67,7 +67,7 @@
 .vine {
     --width: 100%;
     height: 45.58vw;
-    background-image: url(image-assets("login/vine.png"));
+    background-image: var(--login-vine);
     top: 0;
     z-index: 9;
     transform-origin: center top;
@@ -77,14 +77,14 @@
 .banner {
     --width: min(73.52vw, 43vh);
     height: calc(var(--width) *0.5644);
-    background-image: url(image-assets("login/banner.png"));
+    background-image: var(--login-banner);
     top: max(8vh, 5%);
     z-index: 2;
 
     &::before {
         content: '';
         @include size(23.42%, 12.98%);
-        background-image: url(image-assets("login/title.png"));
+        background-image: var(--login-title);
         left: 38.29% !important;
         bottom: 23%;
     }
@@ -106,19 +106,17 @@
     }
 
     &::before {
-        background-image: url(image-assets("login/food-light.png"));
+        background-image: var(--login-food-light);
     }
 
     &::after {
-        background-image: url(image-assets("login/food-with-shadow.png"));
+        background-image: var(--login-food-with-shadow);
         transform: translateY(-200%);
     }
 
     &.animate {
         animation: food 0.5s;
         animation-delay: 0.5s;
-
-        
     }
 
     &.show-food {
@@ -142,7 +140,7 @@
 
     > .food {
         @include size(100%);
-        background-image: url(image-assets("login/food.png"));
+        background-image: var(--login-food);
         transform: translateY(-100%);
         opacity: 0;
     }
@@ -157,7 +155,7 @@
     &::before {
         content: '';
         @include size(100%);
-        background-image: url(image-assets("login/character.png"));
+        background-image: var(--login-character);
         left: 0 !important;
         z-index: 2;
     }
@@ -165,7 +163,7 @@
     &::after {
         content: '';
         @include size(121.41%, 56.02%);
-        background-image: url(image-assets("login/character-shadow.png"));
+        background-image: var(--login-character-shadow);
         transform: translate(34%, 170%);
         left: 0 !important;
         z-index: 1;
@@ -196,7 +194,7 @@
     &::before {
         content: '';
         animation: fix-shadow 100s infinite;
-        background-image: url(image-assets("login/btn-login.png"));
+        background-image: var(--login-btn-login);
     }
 
     &::after {
@@ -212,7 +210,7 @@
 .grass {
     --width: 100vw;
     height: calc(var(--width) * 0.5092);
-    background-image: url(image-assets("login/grass.png"));
+    background-image: var(--login-grass);
     transform-origin: center bottom;
     animation: vine 2s infinite alternate-reverse;
     z-index: 8;

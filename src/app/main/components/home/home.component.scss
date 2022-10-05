@@ -40,7 +40,7 @@
 }
 
 :host {
-    background-image: url(image-assets("home/background.png"));
+    background-image: var(--home-background);
 }
 
 .top-info,
@@ -98,7 +98,7 @@
             --icon-width: calc(var(--panel-width) * 0.0983);
             --icon-height: calc(var(--icon-width) * 0.9243);
             --info-width: calc(var(--panel-width) * 0.1759);
-            --info-icon: #{url(image-assets("home/heart.png"))};
+            --info-icon: var(--home-heart);
             
             .text {
                 text-indent: 2vw;
@@ -108,21 +108,21 @@
         &.gold {
             --icon-width: calc(var(--panel-width) * 0.08197);
             --icon-height: calc(var(--icon-width) * 1.163);
-            --plus-icon: #{url(image-assets("home/plus-green.png"))};
-            --info-icon: #{url(image-assets("home/gold.png"))};
+            --plus-icon: var(--home-plus-green);
+            --info-icon: var(--home-gold);
         }
 
         &.diamond {
             --icon-width: calc(var(--panel-width) * 0.08197);
             --icon-height: calc(var(--icon-width) * 1.09);
-            --plus-icon: #{url(image-assets("home/plus-yellow.png"))};
-            --info-icon: #{url(image-assets("home/diamond.png"))};
+            --plus-icon: var(--home-plus-yellow);
+            --info-icon: var(--home-diamond);
         }
     }
 
     .setting {
         @include size(calc(var(--panel-width) * 0.1058), calc(var(--panel-width) * 0.1073));
-        background-image: url(image-assets("home/setting.png"));
+        background-image: var(--home-setting);
     }
 }
 
@@ -181,27 +181,27 @@
     }
 
     .task {
-        --main-menu-icon: #{url(image-assets("home/task.png"))};
+        --main-menu-icon: var(--home-task);
     }
     
     .mail {
-        --main-menu-icon: #{url(image-assets("home/mail.png"))};
+        --main-menu-icon: var(--home-mail);
     }
     
     .sign {
-        --main-menu-icon: #{url(image-assets("home/sign.png"))};
+        --main-menu-icon: var(--home-sign);
     }
 
     .bag {
-        --main-menu-icon: #{url(image-assets("home/bag.png"))};
+        --main-menu-icon: var(--home-bag);
     }
 
     .map {
-        --main-menu-icon: #{url(image-assets("home/map.png"))};
+        --main-menu-icon: var(--home-map);
     }
 
     .egg {
-        --main-menu-icon: #{url(image-assets("home/egg.png"))};
+        --main-menu-icon: var(--home-egg);
     }
 }
 
@@ -217,20 +217,20 @@
     
     &::before {
         @include size(83.59vw, 41.15vw);
-        background-image: url(image-assets("home/mountain.png"));
+        background-image: var(--home-mountain);
         transform: translateY(-63%);
         right: 0;
     }
 
     &::after {
         @include size(100%);
-        background-image: url(image-assets("home/land.png"));
+        background-image: var(--home-land);
     }
 }
 
 .cloud {
     @include size(77.43vw, 29.615vw);
-    background-image: url(image-assets("home/cloud.png"));
+    background-image: var(--home-cloud);
     z-index: 1;
     margin: -30% 100%;
     animation: cloud 90s infinite linear;
@@ -238,14 +238,14 @@
 
 .mountain-left {
     @include size(30.89vw, 57.82vw);
-    background-image: url(image-assets("home/mountain-left.png"));
+    background-image: var(--home-mountain-left);
     position: absolute;
     transform: translateY(-68%);
 }
 
 .trees {
     @include size(100vw, 36.15vw);
-    background-image: url(image-assets("home/trees.png"));
+    background-image: var(--home-trees);
     transform: translateY(-27%);
     z-index: 1;
 }
@@ -318,7 +318,7 @@
 
     &::after {
         content: '';
-        background-image: url(image-assets("home/btn-mission.png"));
+        background-image: var(--home-btn-mission);
         transform: translateY(-100%);
     }
 
@@ -363,7 +363,7 @@
         position: absolute;
         left: -6%;
         bottom: -11%;
-        background-image: url(image-assets("home/mission-star.png"));
+        background-image: var(--home-mission-star);
         z-index: 1;
         filter: drop-shadow(-0.3vw 0.5vw 1px rgba(#17162a, 0.30));
 
@@ -397,21 +397,21 @@
 
 .yogurt-front {
     @include size(24.487vw, 27.82vw);
-    background-image: url(image-assets("home/yogurt-front.png"));
+    background-image: var(--home-yogurt-front);
     transform: translate(8vw, 7vw);
     
 }
 
 .yogurt-back {
     @include size(14.359vw, 17.4359vw);
-    background-image: url(image-assets("home/yogurt-back.png"));
+    background-image: var(--home-yogurt-back);
     transform: translate(62vw, -8.5vw);
 }
 
 .tree {
     --width: 6.79vw;
     height: 11.15vw;
-    background-image: url(image-assets("home/tree.png"));
+    background-image: var(--home-tree);
     transform: translate(27vw, 24.5vw);
     z-index: 1;
 }
@@ -419,7 +419,7 @@
 .bottom-cloud {
     @include size(245.25vw, 40.256vw);
     display: flex;
-    background-image: url(image-assets("home/bottom-cloud.png"));
+    background-image: var(--home-bottom-cloud);
     left: 0;
     bottom: 0;
     animation: bottom-cloud 60s infinite linear;
@@ -437,7 +437,7 @@
     @include size(100vw, 25.64vw);
     display: flex;
     flex-direction: column;
-    background-image: url(image-assets("home/bottom-menu.png"));
+    background-image: var(--home-bottom-menu);
     bottom: 0;
     z-index: 1;
 
@@ -465,20 +465,20 @@
 
     .hole-left {
         --hole-height: 75.857%;
-        background-image: url(image-assets("home/hole-left.png"));
+        background-image: var(--home-hole-left);
         justify-self: flex-end;
         margin-right: 4.48%;
     }
 
     .hole-center {
         --hole-height: 123%;
-        background-image: url(image-assets("home/hole-center.png"));
+        background-image: var(--home-hole-center);
         justify-self: center;
     }
 
     .hole-right {
         --hole-height: 78.037%;
-        background-image: url(image-assets("home/hole-right.png"));
+        background-image: var(--home-hole-right);
         justify-self: flex-start;
         margin-left: 3.59%;
     }
@@ -504,21 +504,21 @@
     .coup {
         --width: 74.1%;
         --height: 82%;
-        --background-image: #{url(image-assets("home/coup.png"))};
+        --background-image: var(--home-coup);
         margin-right: 15%;
     }
 
     .go {
         --width: 41.95%;
         --height: 43%;
-        --background-image: #{url(image-assets("home/go.png"))};
+        --background-image: var(--home-go);
         margin-bottom: 20%;
     }
 
     .shop {
         --width: 90%;
         --height: 90%;
-        --background-image: #{url(image-assets("home/shop.png"))};
+        --background-image: var(--home-shop);
         margin-left: 5%;
     }
 
