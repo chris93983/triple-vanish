@@ -59,6 +59,8 @@ export const PRELOAD_IMAGES: PreloadImages = Object.freeze({
         ['--game-remaining-steps']: 'game/remaining-steps.png',
         ['--game-stop-continue']: 'game/stop-continue.png',
         ['--game-battle-field']: 'game/battle-field.png',
+        ['--login-character']: 'login/character.png',
+        ['--game-flower']: 'game/flower.png',
         ['--game-bar-wood']: 'game/bar-wood.png',
         ['--game-bar-grass']: 'game/bar-grass.png',
         ['--game-bar-lamp']: 'game/bar-lamp.svg',

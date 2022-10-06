@@ -34,6 +34,9 @@
 
 :host {
     --battle-field-y: min(118.076vw, 65.7vh);
+    --bar-width: min(155.6vw, 91vh);
+    --bar-height: calc(var(--bar-width) * 0.08649);
+    --bar-bottom: calc(var(--battle-field-y) - var(--bar-height) * 0.92);
     background-image: linear-gradient(180deg, #9EC7F3 0, #2CF0EA 53.846%);
 }
 
@@ -79,19 +82,27 @@
 
 .bar,
 .chessboard,
+.character,
 .battle-field .grass {
     @extend %layer;
 }
 
+.character {
+    --width: 34.1vw;
+    --height: calc(var(--width) * 1.71);
+    height: var(--height);
+    background-image: var(--login-character);
+    position: absolute;
+    bottom: calc(var(--bar-bottom) - var(--height) / 4.5);
+}
+
 .bar {
-    --width: min(155.6vw, 91vh);
-    --bar-width: var(--width);
-    --bar-height: calc(var(--width) * 0.08649);
+    --width: var(--bar-width);
     height: var(--bar-height);
     display: flex;
     justify-content: center;
     position: absolute;
-    bottom: calc(var(--battle-field-y) - var(--bar-height) * 0.92);
+    bottom: var(--bar-bottom);
     z-index: 1;
 
     &::before,
@@ -121,6 +132,17 @@
         background-image: var(--game-bar-lamp);
         z-index: 1;
         top: 13%;
+    }
+
+    .flower {
+        --width: calc(var(--bar-height) * 1.4);
+        width: var(--width);
+        height: calc(var(--width) * 1.335);
+        background-image: var(--game-flower);
+        position: absolute;
+        z-index: 2;
+        left: calc((var(--bar-width) - 100vw) / 2);
+        transform: translateY(-69.67%);
     }
 
     .hint-board {
