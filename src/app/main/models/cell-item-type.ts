@@ -1,1 +1,3 @@
-export type CellItemType = 'fruit' | 'shovel' | 'slab';
+import { FruitType } from './fruit-type';
+
+export type CellItemType = 'shovel' | 'slab' | FruitType;

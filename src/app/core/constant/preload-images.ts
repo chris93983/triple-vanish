@@ -61,6 +61,7 @@ export const PRELOAD_IMAGES: PreloadImages = Object.freeze({
         ['--game-battle-field']: 'game/battle-field.png',
         ['--game-bar-wood']: 'game/bar-wood.png',
         ['--game-bar-grass']: 'game/bar-grass.png',
+        ['--game-bar-lamp']: 'game/bar-lamp.svg',
         ['--game-hint-board']: 'game/hint-board.png',
         ['--game-grass']: 'game/grass.png',
         ['--game-tool']: 'game/tool.png',
