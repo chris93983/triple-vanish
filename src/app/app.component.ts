@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 
 import { environment } from '../environments/environment';
 import { PRELOAD_IMAGES } from './core/constant/preload-images';
@@ -58,7 +58,7 @@ export class AppComponent implements OnInit {
                 }
 
                 await Promise.all(promises);
-                await new Promise(resolve => setTimeout(resolve, 200));
+                await new Promise(resolve => setTimeout(resolve, 100));
                 this.loading = false;
                 this.updateLoadingProgress();
             }

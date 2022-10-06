@@ -5,36 +5,155 @@
     background-image: linear-gradient(180deg, #9EC7F3 0, #2CF0EA 53.846%);
 }
 
-.hint-board,
+.score-bar {
+    --bar-width: min(77.69vw, 33.33vh);
+    display: flex;
+
+    &::before {
+        content: '';
+        width: var(--bar-width);
+        height: calc(var(--bar-width) / 5.05);
+        background-image: var(--game-score-bar);
+        position: absolute;
+        left: 5.38vw;
+    }
+
+    .remaining-steps {
+        --shadow-color: #4a321a;
+        --shadow-depth: min(0.11vw, 1px);
+        --height: calc(var(--bar-width) * 0.2211);
+        width: calc(var(--bar-width) * 0.23471);
+        height: var(--height);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: var(--game-remaining-steps);
+        position: absolute;
+        font-size: calc(var(--bar-width) * 0.09);
+        padding: 0 0 calc(var(--height) * 0.14) calc(var(--height) * 0.14);
+        @include text-border(var(--shadow-color), var(--shadow-depth));
+        left: 0;
+    }
+
+    .stop-continue {
+        --width: calc(var(--bar-width) * 0.1834);
+        width: var(--width);
+        height: calc(var(--width) * 1.15338);
+        background-image: var(--game-stop-continue);
+        position: absolute;
+        right: calc(var(--width) * 0.1);
+    }
+}
+
+.bar,
+.chessboard,
 .battle-field .grass {
     @extend %layer;
 }
 
 .bar {
-    --bar-height: 19.23vw;
-    @include size(100%, var(--bar-height));
-    background-image: var(--game-bar-wood);
+    --width: min(155.6vw, 91vh);
+    --bar-width: var(--width);
+    --bar-height: calc(var(--width) * 0.08649);
+    height: var(--bar-height);
+    display: flex;
+    justify-content: center;
     position: absolute;
     bottom: calc(var(--battle-field-y) - var(--bar-height) * 0.92);
     z-index: 1;
 
+    &::before,
+    &::after {
+        content: '';
+        @include size(100%);
+        position: absolute;
+        left: 0;
+        
+    }
+
+    &::before {
+        height: 128.5%;
+        background-image: var(--game-bar-grass);
+        top: 48%;
+    }
+
+    &::after {
+        background-image: var(--game-bar-wood);
+        top: 0;
+    }
+
     .hint-board {
-        --width: 53.846vw;
-        height: calc(var(--width) * 0.2738);
+        --board-width: calc(var(--bar-width)* 0.346);
+        --board-height: calc(var(--board-width) * 0.2738);
+        --padding-top: calc(var(--board-width) * 0.07857);
+        --padding-bottom: calc(var(--board-width) * 0.0571);
+        @include size(var(--board-width), var(--board-height));
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         align-items: center;
         background-image: var(--game-hint-board);
-        padding: 33px 26px 24px;
+        margin-top: calc(0px - var(--bar-width) * .01);
+        padding: var(--padding-top) calc(var(--board-width) * 0.0619) var(--padding-bottom);
+        z-index: 1;
 
         .fruit {
+            --shadow-color: #4a321a;
+            --fruit-size: calc(var(--board-height) - var(--padding-top) - var(--padding-bottom));
+            
+            &::before {
+                --shadow-depth: min(0.25vw);
+                @include drop-border(var(--shadow-color), var(--shadow-depth));
+            }
 
+            &::after {
+                --shadow-depth-font: min(0.11vw, 1px);
+                content: attr(count);
+                margin-left: calc(var(--fruit-size) * 0.2);
+                margin-top: 15%;
+                font-size: calc(var(--board-width) * 0.05);
+                @include text-border(var(--shadow-color), var(--shadow-depth-font));
+            }
         }
     }
 }
 
 .fruit {
+    @include size(var(--fruit-size), var(--fruit-size), true);
+    max-width: var(--fruit-size);
+    max-height: var(--fruit-size);
+    display: flex;
+    align-items: center;
 
+    &::before {
+        content: '';
+        @include size(var(--fruit-size), var(--fruit-size), true);
+        background-image: var(--icon-fruit);
+        background-size: contain;
+    }
+
+    &.blurberry {
+        --icon-fruit: var(--game-blurberry);
+    }
+
+    &.leechee {
+        --icon-fruit: var(--game-leechee);
+    }
+
+    &.melon {
+        --icon-fruit: var(--game-melon);
+    }
+
+    &.mongo {
+        --icon-fruit: var(--game-mongo);
+    }
+
+    &.strawberry {
+        --icon-fruit: var(--game-strawberry);
+    }
+
+    &.yogurt {
+        --icon-fruit: var(--game-yogurt);
+    }
 }
 
 .battle-field {
@@ -43,9 +162,79 @@
     position: absolute;
     bottom: 0;
 
+    .chessboard {
+        --columns: 8;
+        --rows: 7;
+        --cell-size: 8vw;
+        --chessboard-width: calc(var(--cell-size) * var(--columns));
+        --chessboard-height: calc(var(--cell-size) * var(--rows));
+        --width: var(--chessboard-width);
+        height: var(--chessboard-height);
+        display: grid;
+        grid-template-columns: repeat(var(--columns), var(--cell-size));
+        grid-template-rows: repeat(var(--rows), var(--cell-size));
+        top: calc(50% - var(--chessboard-height) / 2);
+
+        .fruit {
+            background-color: #D9B478;
+
+            &.disable {
+                opacity: 0;
+
+                &:nth-of-type(1),
+                &:nth-of-type(5),
+                &:nth-of-type(7),
+                &:nth-of-type(9) {
+                    grid-column: 1;
+                }
+
+                &:nth-of-type(4),
+                &:nth-of-type(6),
+                &:nth-of-type(8),
+                &:nth-of-type(12) {
+                    grid-column: var(--columns);
+                }
+
+                &:nth-of-type(2),
+                &:nth-of-type(10) {
+                    grid-column: 2;
+                }
+
+                &:nth-of-type(3),
+                &:nth-of-type(11) {
+                    grid-column: calc(var(--columns) - 1);
+                }
+
+                &:nth-of-type(1),
+                &:nth-of-type(2),
+                &:nth-of-type(3),
+                &:nth-of-type(4) {
+                    grid-row: 1;
+                }
+
+                &:nth-of-type(9),
+                &:nth-of-type(10),
+                &:nth-of-type(11),
+                &:nth-of-type(12) {
+                    grid-row: var(--rows);
+                }
+
+                &:nth-of-type(5),
+                &:nth-of-type(6) {
+                    grid-row: 2;
+                }
+
+                &:nth-of-type(7),
+                &:nth-of-type(8) {
+                    grid-row: calc(var(--rows) - 1);
+                }
+            }
+        }
+    }
+
     .grass {
         --height: min(28.917vw, 12vh);
-        --width: 100%;
+        --width: 100vw;
         --grass-width: var(--width);
         height: var(--height);
         display: flex;
@@ -57,11 +246,45 @@
         padding-bottom: calc(var(--grass-width) * 0.032301);
         bottom: 0;
 
+        &::before,
+        &::after {
+            @keyframes bottom-grass {
+                from {
+                    transform: scale(0.95, 1.05);
+                }
+              
+                to {
+                    transform: scale(1.05, 0.95);
+                }
+            }
+
+            content: '';
+            position: absolute;
+            z-index: 1;
+            transform-origin: center bottom;
+            animation: bottom-grass 3s infinite alternate-reverse;
+        }
+
+        &::before {
+            --bottom-grass-width: min(calc(var(--grass-width) * 0.32179), 17vh);
+            @include size(var(--bottom-grass-width), calc(var(--bottom-grass-width) * 0.8));
+            background-image: var(--game-grass-bottom-left);
+            left: -0.8%;
+        }
+
+        &::after {
+            --bottom-grass-width: min(calc(var(--grass-width) * 0.1192), 6.3vh);
+            @include size(var(--bottom-grass-width), calc(var(--bottom-grass-width) * 1.8));
+            background-image: var(--game-grass-bottom-right);
+            right: -0.8%;
+        }
+
         .tool {
             --tool-size: calc(var(--height) * 0.594);
             content: '';
             @include size(var(--tool-size), var(--tool-size), true);
             position: relative;
+            z-index: 1;
 
             &.plier {
                 --tool-icon: var(--game-plier);

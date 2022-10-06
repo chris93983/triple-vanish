@@ -1,7 +1,30 @@
-<div class="bar">
-    <div class="hint-board center"></div>
+<div class="score-bar">
+    <div class="remaining-steps">48</div>
+    <div class="stop-continue"></div>
+</div>
+<div class="bar center">
+    <div class="hint-board center">
+        <div class="fruit strawberry" count="x30"></div>
+        <div class="fruit blurberry" count="x30"></div>
+        <div class="fruit leechee" count="x30"></div>
+    </div>
 </div>
 <div class="battle-field">
+    <div class="chessboard center">
+        <div *ngFor="let item of cellItems" class="fruit"></div>
+        <span class="fruit disable"></span>
+        <span class="fruit disable"></span>
+        <span class="fruit disable"></span>
+        <span class="fruit disable"></span>
+        <span class="fruit disable"></span>
+        <span class="fruit disable"></span>
+        <span class="fruit disable"></span>
+        <span class="fruit disable"></span>
+        <span class="fruit disable"></span>
+        <span class="fruit disable"></span>
+        <span class="fruit disable"></span>
+        <span class="fruit disable"></span>
+    </div>
     <div class="grass center">
         <div class="tool btn-light plier">
             <div class="shadow"></div>
