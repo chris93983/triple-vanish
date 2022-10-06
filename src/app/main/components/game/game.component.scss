@@ -88,12 +88,12 @@
 }
 
 .character {
-    --width: 34.1vw;
+    --width: calc(var(--bar-height) * 2.4);
     --height: calc(var(--width) * 1.71);
     height: var(--height);
     background-image: var(--login-character);
     position: absolute;
-    bottom: calc(var(--bar-bottom) - var(--height) / 4.5);
+    bottom: calc(var(--bar-bottom) - var(--height) / 6);
 }
 
 .bar {
@@ -333,7 +333,7 @@
         }
 
         .tool {
-            --tool-size: calc(var(--height) * 0.594);
+            --tool-size: calc(var(--height) * 0.75);
             content: '';
             @include size(var(--tool-size), var(--tool-size), true);
             position: relative;
@@ -345,7 +345,7 @@
 
             &.air-blower {
                 --tool-icon: var(--game-air-blower);
-                margin: 0 15%;
+                margin: 0 8vw;
             }
 
             &.rabbler {
