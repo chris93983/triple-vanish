@@ -1,15 +1,5 @@
 @import "shared-styles";
 
-@keyframes progress {
-    from {
-        transform: translate(-3vw, -100%);
-    }
-  
-    to {
-        transform: translate(0, -100%);
-    }
-}
-
 :host {
     @include size(100%);
     position: relative;

@@ -1,4 +1,20 @@
-<div class="score-bar">
+<div class="top-grass"></div>
+<div class="top-bar">
+    <div class="score-bar">
+        <div class="border">
+            <div class="inner">
+                <div class="progress-bar">
+                    <div class="progress-wrapper">
+                        <div #progressElement class="progress" style="--progress: 100%"></div>
+                    </div>
+                    <span class="progress-star" [class.achieved]="progress >= 0.2"></span>
+                    <span class="progress-star" [class.achieved]="progress >= 0.6"></span>
+                    <span class="progress-star" [class.achieved]="progress >= 1.0"></span>
+                </div>
+                <div class="score" title="分数" score="11,220"></div>
+            </div>
+        </div>
+    </div>
     <div class="remaining-steps">48</div>
     <div class="stop-continue"></div>
 </div>

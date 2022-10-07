@@ -34,50 +34,11 @@
 
 :host {
     --battle-field-y: min(118.076vw, 65.7vh);
+    --top-bar-width: 90vw;
     --bar-width: min(155.6vw, 91vh);
     --bar-height: calc(var(--bar-width) * 0.08649);
     --bar-bottom: calc(var(--battle-field-y) - var(--bar-height) * 0.92);
     background-image: linear-gradient(180deg, #9EC7F3 0, #2CF0EA 53.846%);
-}
-
-.score-bar {
-    --bar-width: min(77.69vw, 33.33vh);
-    display: flex;
-
-    &::before {
-        content: '';
-        width: var(--bar-width);
-        height: calc(var(--bar-width) / 5.05);
-        background-image: var(--game-score-bar);
-        position: absolute;
-        left: 5.38vw;
-    }
-
-    .remaining-steps {
-        --shadow-color: #4a321a;
-        --shadow-depth: min(0.11vw, 1px);
-        --height: calc(var(--bar-width) * 0.2211);
-        width: calc(var(--bar-width) * 0.23471);
-        height: var(--height);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-image: var(--game-remaining-steps);
-        position: absolute;
-        font-size: calc(var(--bar-width) * 0.09);
-        padding: 0 0 calc(var(--height) * 0.14) calc(var(--height) * 0.14);
-        @include text-border(var(--shadow-color), var(--shadow-depth));
-        left: 0;
-    }
-
-    .stop-continue {
-        --width: calc(var(--bar-width) * 0.1834);
-        width: var(--width);
-        height: calc(var(--width) * 1.15338);
-        background-image: var(--game-stop-continue);
-        position: absolute;
-        right: calc(var(--width) * 0.1);
-    }
 }
 
 .bar,
@@ -85,6 +46,164 @@
 .character,
 .battle-field .grass {
     @extend %layer;
+}
+
+.top-grass {
+    --top-grass-width: 120vw;
+    @include size(var(--top-grass-width), calc(var(--top-grass-width) * 0.0643));
+    background-image: var(--game-top-grass);
+    position: absolute;
+    margin-top: calc(0px - var(--top-grass-width) * 0.02);
+    left: calc((100vw - var(--top-grass-width)) /2);
+    animation: bar-grass-wave 4s infinite alternate-reverse linear;
+}
+
+.top-bar {
+    --steps-height: min(18vw, 11vh);
+    --steps-width: calc(var(--steps-height) / 0.942);
+    --stop-width: calc(var(--steps-width) * 0.94);
+    width: var(--top-bar-width);
+    position: relative;
+    display: flex;
+    margin-left: calc((100vw - var(--top-bar-width)) / 2);
+
+    .remaining-steps {
+        --shadow-color: #4a321a;
+        --shadow-depth: min(0.11vw, 1px);
+        width: var(--steps-width);
+        height: var(--steps-height);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: var(--game-remaining-steps);
+        position: absolute;
+        font-size: calc(var(--steps-width) * 0.4);
+        padding: 0 0 calc(var(--steps-height) * 0.30) calc(var(--steps-height) * 0.21);
+        @include text-border(var(--shadow-color), var(--shadow-depth));
+        left: calc(0px - var(--steps-height) * 0.21);
+    }
+
+    .score-bar {
+        --score-bar-width: calc(var(--top-bar-width) - var(--stop-width) - var(--top-bar-width) * 0.05);
+        --score-bar-height: calc(var(--steps-height) * 0.7);
+        width: var(--score-bar-width);
+        height: var(--score-bar-height);
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-end;
+        border-radius: 99999vw;
+        background-image: linear-gradient(261.52deg, #643514 2.62%, #B38650 24.93%, #643514 41.21%);
+        position: absolute;
+        top: calc(var(--steps-height) * 0.07);
+        left: calc(var(--steps-width) / 3);
+
+        .border {
+            @include size(100%, 95%);
+            border-radius: 99999vw;
+            padding: calc(var(--score-bar-height) * 0.125) calc(var(--score-bar-height) * 0.125) calc(var(--score-bar-height) * 0.125) calc(var(--steps-width) / 2);
+            background-image: var(--game-bar-dirt), linear-gradient(180deg, #FDDF80 0%, #F1C275 100%);
+            background-size: contain, 100%;
+            background-position: calc(var(--steps-width) / 2), center;
+            box-shadow: inset calc(0px - var(--score-bar-height) * 0.01) calc(var(--score-bar-height) * 0.02) 0px #FFF;
+
+            .inner {
+                @include size(100%);
+                display: flex;
+                justify-content: space-between;
+                border-radius: 99999vw;
+                background-color: #BC8544;
+                box-shadow: 0px 1px 0px #FFFF87, inset calc(var(--score-bar-height) * 0.01) calc(var(--score-bar-height) * 0.03) 0px #5F300F;
+                padding: calc(var(--score-bar-height) * 0.19) 0 calc(var(--score-bar-height) * 0.19) calc(var(--score-bar-height) * 0.2185);
+
+                .progress-bar {
+                    --shadow: drop-shadow(calc(var(--score-bar-height) * -0.0063) calc(var(--score-bar-height) * -0.0252) 0px #F1CE77);
+                    @include size(calc(100% - var(--steps-height) * 0.9), 100%);
+                    border-radius: 99999vw;
+                    padding: calc(var(--score-bar-height) * 0.03);
+                    position: relative;
+                    box-shadow: inset 0px calc(var(--score-bar-height) * 0.03) 0px #5F300F;
+                    filter: var(--shadow);
+                    background-color: #865020;
+
+                    .progress-wrapper {
+                        --margin: calc(var(--score-bar-height) * 0.06);
+                        width: calc(100% - var(--margin));
+                        height: calc(100% - var(--margin));
+                        position: absolute;
+                        border-radius: 99999vw;
+                        overflow: hidden;
+                        z-index: 1;
+                    }
+
+                    .progress {
+                        --progress: 100%;
+                        width: var(--progress);
+                    }
+
+                    .progress-star {
+                        --star-size: calc(var(--score-bar-height) * 0.5166);
+                        @include size(var(--star-size));
+                        background-image: var(--game-progress-star);
+                        position: absolute;
+                        top: calc((100% - var(--star-size)) / 2);
+                        left: calc(var(--star-position) - var(--star-size));
+
+                        &.achieved::before {
+                            content: '';
+                            @include size(100%);
+                            background-image: var(--home-mission-star);
+                            background-size: 85%;
+                            filter: drop-shadow(0 0 calc(var(--star-size) * 0.1) rgb(255, 229, 80));
+                            position: absolute;
+                            z-index: 1;
+                        }
+                        
+                        &:nth-of-type(1) {
+                            --star-position: 20%;
+                        }
+
+                        &:nth-of-type(2) {
+                            --star-position: 60%;
+                        }
+
+                        &:nth-of-type(3) {
+                            --star-position: 99%;
+                        }
+                    }
+                }
+
+                .score {
+                    --shadow-color: #4a321a;
+                    --shadow-depth-font: min(0.11vw, 1px);
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: calc(var(--score-bar-height) / 4);
+                    @include text-border(var(--shadow-color), var(--shadow-depth-font));
+                    padding-right: 2%;
+
+                    &::before {
+                        content: attr(title);
+                    }
+
+                    &::after {
+                        content: attr(score);
+                    }
+                }
+            }
+        }
+    }
+
+    .stop-continue {
+        width: var(--stop-width);
+        height: calc(var(--stop-width) * 1.15338);
+        background-image: var(--game-stop-continue);
+        position: absolute;
+        right: calc(0px - var(--stop-width) * 0.2);
+        margin-top: calc(0px - var(--stop-width) * .15);
+    }
 }
 
 .character {
@@ -131,7 +250,7 @@
         height: calc(var(--bar-width) * 0.08749);
         background-image: var(--game-bar-lamp);
         z-index: 1;
-        top: 13%;
+        top: 18%;
     }
 
     .flower {
@@ -345,7 +464,7 @@
 
             &.air-blower {
                 --tool-icon: var(--game-air-blower);
-                margin: 0 8vw;
+                margin: 0 10vw;
             }
 
             &.rabbler {

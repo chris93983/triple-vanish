@@ -1,6 +1,16 @@
 @import "./styles/shared-styles";
 @import "./styles/font";
 
+@keyframes progress-strip {
+    from {
+        transform: translate(-3.8%, -100%);
+    }
+  
+    to {
+        transform: translate(0, -100%);
+    }
+}
+
 *,
 ::before,
 ::after {
@@ -80,31 +90,37 @@ button {
     }
 
     .progress {
-        --progress: 0;
+        --progress-all-width: var(--width);
         width: calc(var(--progress) * 0.987);
-        height: calc(100% - var(--padding) * 2);
-        transform: translateY(-100%);
-        border-radius: 99999vw;
         position: absolute;
+        transform: translateY(-100%);
+    }
+}
+
+.progress {
+    --progress: 0;
+    width: var(--progress);
+    height: calc(100% - var(--padding, 0px) * 2);
+    border-radius: 99999vw;
+    overflow: hidden;
+
+    &::before,
+    &::after {
+        content: '';
+        border-radius: 99999vw;
+        @include size(100%);
         overflow: hidden;
+    }
 
-        &::before,
-        &::after {
-            content: '';
-            border-radius: 99999vw;
-            @include size(100%);
-        }
+    &::before {
+        background-image: linear-gradient(180deg, rgba(208, 255, 192, 0.972549) 0%, #4ddb00 51.56%, #E1FF27 100%);
+    }
 
-        &::before {
-            background-image: linear-gradient(180deg, rgba(208, 255, 192, 0.972549) 0%, #4ddb00 51.56%, #E1FF27 100%);
-        }
-
-        &::after {
-            --stroke: #{rgba(200, 255, 202, 0.3)};
-            --space: calc(var(--width) * 0.01875);
-            width: 120%;
-            background-image: repeating-linear-gradient(114deg, var(--stroke) 0, var(--stroke) var(--space), transparent var(--space), transparent calc(var(--space) * 2));
-            animation: progress 1.5s infinite linear;
-        }
+    &::after {
+        --stroke: #{rgba(200, 255, 202, 0.3)};
+        --space: 1vw;
+        width: 120%;
+        background-image: repeating-linear-gradient(114deg, var(--stroke) 0, var(--stroke) var(--space), transparent var(--space), transparent calc(var(--space) * 2));
+        animation: progress-strip 2s infinite linear;
     }
 }

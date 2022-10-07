@@ -1,0 +1,100 @@
+<svg 
+ xmlns="http://www.w3.org/2000/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ width="118px" height="156px">
+<defs>
+<filter id="Filter_0">
+    <feOffset in="SourceAlpha" dx="2.837" dy="0.977" />
+    <feGaussianBlur result="blurOut" stdDeviation="0" />
+    <feFlood flood-color="rgb(255, 249, 161)" result="floodOut" />
+    <feComposite operator="out" in="floodOut" in2="blurOut" result="compOut" />
+    <feComposite operator="in" in="compOut" in2="SourceAlpha" />
+    <feComponentTransfer><feFuncA type="linear" slope="1"/></feComponentTransfer>
+    <feBlend mode="normal" in2="SourceGraphic" />
+</filter>
+<linearGradient id="PSgrad_0" x1="0%" x2="0%" y1="100%" y2="0%">
+  <stop offset="0%" stop-color="rgb(241,193,117)" stop-opacity="1" />
+  <stop offset="100%" stop-color="rgb(254,224,129)" stop-opacity="1" />
+</linearGradient>
+<filter filterUnits="userSpaceOnUse" id="Filter_1" x="8px" y="43px" width="70px" height="70px"  >
+    <feOffset in="SourceAlpha" dx="1.782" dy="0.908" />
+    <feGaussianBlur result="blurOut" stdDeviation="0" />
+    <feFlood flood-color="rgb(255, 245, 143)" result="floodOut" />
+    <feComposite operator="atop" in="floodOut" in2="blurOut" />
+    <feComponentTransfer><feFuncA type="linear" slope="1"/></feComponentTransfer>
+    <feMerge>
+    <feMergeNode/>
+    <feMergeNode in="SourceGraphic"/>
+  </feMerge>
+</filter>
+<filter id="Filter_2">
+    <feOffset in="SourceAlpha" dx="1.634" dy="2.516" />
+    <feGaussianBlur result="blurOut" stdDeviation="0" />
+    <feFlood flood-color="rgb(147, 105, 55)" result="floodOut" />
+    <feComposite operator="out" in="floodOut" in2="blurOut" result="compOut" />
+    <feComposite operator="in" in="compOut" in2="SourceAlpha" />
+    <feComponentTransfer><feFuncA type="linear" slope="0.68"/></feComponentTransfer>
+    <feBlend mode="multiply" in2="SourceGraphic" />
+</filter>
+<filter filterUnits="userSpaceOnUse" id="Filter_3" x="19px" y="55px" width="46px" height="47px"  >
+    <feOffset in="SourceAlpha" dx="0.891" dy="0.454" />
+    <feGaussianBlur result="blurOut" stdDeviation="0" />
+    <feFlood flood-color="rgb(134, 80, 32)" result="floodOut" />
+    <feComposite operator="atop" in="floodOut" in2="blurOut" />
+    <feComponentTransfer><feFuncA type="linear" slope="1"/></feComponentTransfer>
+    <feMerge>
+    <feMergeNode/>
+    <feMergeNode in="SourceGraphic"/>
+  </feMerge>
+</filter>
+<filter id="Filter_4">
+    <feOffset in="SourceAlpha" dx="3.564" dy="-1.816" />
+    <feGaussianBlur result="blurOut" stdDeviation="2" />
+    <feFlood flood-color="rgb(123, 255, 134)" result="floodOut" />
+    <feComposite operator="out" in="floodOut" in2="blurOut" result="compOut" />
+    <feComposite operator="in" in="compOut" in2="SourceAlpha" />
+    <feComponentTransfer><feFuncA type="linear" slope="1"/></feComponentTransfer>
+    <feBlend mode="normal" in2="SourceGraphic" />
+</filter>
+<filter id="Filter_5">
+    <feOffset in="SourceAlpha" dx="2.828" dy="2.828" />
+    <feGaussianBlur result="blurOut" stdDeviation="1" />
+    <feFlood flood-color="rgb(123, 255, 134)" result="floodOut" />
+    <feComposite operator="out" in="floodOut" in2="blurOut" result="compOut" />
+    <feComposite operator="in" in="compOut" in2="SourceAlpha" />
+    <feComponentTransfer><feFuncA type="linear" slope="0.72"/></feComponentTransfer>
+    <feBlend mode="normal" in2="SourceGraphic" />
+</filter>
+<linearGradient id="PSgrad_1" x1="0%" x2="0%" y1="0%" y2="100%">
+  <stop offset="0%" stop-color="rgb(13,120,100)" stop-opacity="1" />
+  <stop offset="100%" stop-color="rgb(102,205,98)" stop-opacity="1" />
+</linearGradient>
+
+</defs>
+<path fill-rule="evenodd"  fill="rgb(132, 92, 53)"
+ d="M41.1000,40.1000 C64.644,40.1000 82.1000,59.356 82.1000,81.1000 C82.1000,104.644 64.644,122.1000 41.1000,122.1000 C19.356,122.1000 0.1000,104.644 0.1000,81.1000 C0.1000,59.356 19.356,40.1000 41.1000,40.1000 Z"/>
+<g filter="url(#Filter_0)">
+<path fill-rule="evenodd"  fill="url(#PSgrad_0)"
+ d="M40.1000,35.1000 C63.644,35.1000 81.1000,54.356 81.1000,76.1000 C81.1000,99.644 63.644,117.1000 40.1000,117.1000 C18.356,117.1000 -0.000,99.644 -0.000,76.1000 C-0.000,54.356 18.356,35.1000 40.1000,35.1000 Z"/>
+</g>
+<g filter="url(#Filter_1)">
+<g filter="url(#Filter_2)">
+<path fill-rule="evenodd"  fill="rgb(188, 133, 68)"
+ d="M40.1000,46.287 C57.962,46.287 71.713,60.038 71.713,76.1000 C71.713,93.962 57.962,107.713 40.1000,107.713 C24.038,107.713 10.287,93.962 10.287,76.1000 C10.287,60.038 24.038,46.287 40.1000,46.287 Z"/>
+</g></g>
+<g filter="url(#Filter_3)">
+<path fill-rule="evenodd"  fill="rgb(255, 252, 233)"
+ d="M55.202,97.271 L48.413,97.271 C46.204,97.271 44.413,95.480 44.413,93.271 L44.413,63.729 C44.413,61.520 46.204,59.729 48.413,59.729 L55.202,59.729 C57.411,59.729 59.202,61.520 59.202,63.729 L59.202,93.271 C59.202,95.480 57.411,97.271 55.202,97.271 ZM33.587,97.271 L26.798,97.271 C24.589,97.271 22.798,95.480 22.798,93.271 L22.798,63.729 C22.798,61.520 24.589,59.729 26.798,59.729 L33.587,59.729 C35.796,59.729 37.587,61.520 37.587,63.729 L37.587,93.271 C37.587,95.480 35.796,97.271 33.587,97.271 Z"/>
+</g>
+<path fill-rule="evenodd"  opacity="0.522" fill="rgb(18, 18, 18)"
+ d="M99.387,100.290 C99.387,100.290 69.957,102.735 66.009,77.035 C66.009,77.035 96.362,54.609 99.387,100.290 Z"/>
+<g filter="url(#Filter_4)">
+<path fill-rule="evenodd"  stroke="rgb(47, 132, 92)" stroke-width="10px" stroke-linecap="round" stroke-linejoin="miter" fill="none"
+ d="M75.251,15.992 C75.251,15.992 124.743,101.102 75.095,128.805 C36.789,150.178 14.309,115.515 33.097,98.854 C57.084,77.585 73.063,112.328 53.096,115.826 "/>
+</g>
+<g filter="url(#Filter_5)">
+<path fill-rule="evenodd"  fill="url(#PSgrad_1)"
+ d="M97.368,96.864 C97.368,96.864 68.654,91.789 71.238,65.576 C71.238,65.576 105.774,51.286 97.368,96.864 Z"/>
+</g>
+<image  x="18px" y="96px" width="74px" height="43px"  xlink:href="data:img/png;base64," />
+</svg>

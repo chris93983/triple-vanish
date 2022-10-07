@@ -9,6 +9,7 @@
 
 %btn-light {
     transition: filter $widget-transition, transform $widget-transition;
+    cursor: pointer;
 
     &:active {
         --scale: 0.8;

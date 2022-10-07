@@ -10,14 +10,14 @@
 
 @mixin text-border($color, $depth) {
     text-shadow:
-        calc(#{$depth} * 2) 0 #{$depth} #{$color},
-        calc(#{$depth} * 2) calc(#{$depth} * 2) #{$depth} #{$color},
-        0 calc(#{$depth} * 2) #{$depth} #{$color},
-        calc(0px - #{$depth} * 2) calc(#{$depth} * 2) #{$depth} #{$color},
-        calc(0px - #{$depth} * 2) 0 #{$depth} #{$color},
-        calc(0px - #{$depth} * 2) calc(0px - #{$depth} * 2) #{$depth} #{$color},
-        0 calc(0px - #{$depth} * 2) #{$depth} #{$color},
-        calc(#{$depth} * 2) calc(0px - #{$depth} * 2) #{$depth} #{$color};
+        calc(#{$depth} * 2) 0 0 #{$color},
+        calc(#{$depth} * 2) calc(#{$depth} * 2) 0 #{$color},
+        0 calc(#{$depth} * 2) 0 #{$color},
+        calc(0px - #{$depth} * 2) calc(#{$depth} * 2) 0 #{$color},
+        calc(0px - #{$depth} * 2) 0 0 #{$color},
+        calc(0px - #{$depth} * 2) calc(0px - #{$depth} * 2) 0 #{$color},
+        0 calc(0px - #{$depth} * 2) 0 #{$color},
+        calc(#{$depth} * 2) calc(0px - #{$depth} * 2) 0 #{$color};
 }
 
 @mixin drop-border($color, $depth, $blur: 0) {
