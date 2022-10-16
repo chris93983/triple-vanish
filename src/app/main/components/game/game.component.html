@@ -31,19 +31,7 @@
 </div>
 <div class="battle-field">
     <div class="chessboard center">
-        <div *ngFor="let item of cellItems" class="fruit"></div>
-        <span class="fruit disable"></span>
-        <span class="fruit disable"></span>
-        <span class="fruit disable"></span>
-        <span class="fruit disable"></span>
-        <span class="fruit disable"></span>
-        <span class="fruit disable"></span>
-        <span class="fruit disable"></span>
-        <span class="fruit disable"></span>
-        <span class="fruit disable"></span>
-        <span class="fruit disable"></span>
-        <span class="fruit disable"></span>
-        <span class="fruit disable"></span>
+        <span *ngFor="let item of cellItems" class="fruit {{ item.itemType }}" [class.disable]="item.disable"></span>
     </div>
     <div class="grass center">
         <div class="tool btn-light plier">

@@ -326,7 +326,6 @@
         content: '';
         @include size(var(--fruit-size), var(--fruit-size), true);
         background-image: var(--icon-fruit);
-        background-size: contain;
     }
 
     &.blurberry {
@@ -363,7 +362,7 @@
     .chessboard {
         --columns: 8;
         --rows: 7;
-        --cell-size: 8vw;
+        --cell-size: min(10.5vw, 5.8vh);
         --chessboard-width: calc(var(--cell-size) * var(--columns));
         --chessboard-height: calc(var(--cell-size) * var(--rows));
         --width: var(--chessboard-width);
@@ -371,61 +370,32 @@
         display: grid;
         grid-template-columns: repeat(var(--columns), var(--cell-size));
         grid-template-rows: repeat(var(--rows), var(--cell-size));
-        top: calc(50% - var(--chessboard-height) / 2);
+        top: calc(50% - var(--chessboard-height) / 1.9);
 
         .fruit {
             background-color: #D9B478;
 
             &.disable {
                 opacity: 0;
+            }
 
-                &:nth-of-type(1),
-                &:nth-of-type(5),
-                &:nth-of-type(7),
-                &:nth-of-type(9) {
-                    grid-column: 1;
-                }
+            &::before {
+                --size: calc(var(--cell-size) * 0.02);
+                @include size(100%);
+                background-size: 80%;
+                background-color: rgba(80, 62, 47, 0.3);
+                background-position: center;
+                border: solid calc(var(--cell-size) * 0.05) #D9B478;
+                border-radius: calc(var(--cell-size) * 0.2);
+                box-shadow:
+                    inset calc(0px - var(--size)) calc(0px - var(--size)) calc(var(--size) * 2) rgba(91, 65, 46, 0.3),
+                    inset calc(var(--size) * 3) calc(var(--size) * 4) calc(var(--size) * 4) rgba(95, 69, 48, 0.6);
+            }
 
-                &:nth-of-type(4),
-                &:nth-of-type(6),
-                &:nth-of-type(8),
-                &:nth-of-type(12) {
-                    grid-column: var(--columns);
-                }
-
-                &:nth-of-type(2),
-                &:nth-of-type(10) {
-                    grid-column: 2;
-                }
-
-                &:nth-of-type(3),
-                &:nth-of-type(11) {
-                    grid-column: calc(var(--columns) - 1);
-                }
-
-                &:nth-of-type(1),
-                &:nth-of-type(2),
-                &:nth-of-type(3),
-                &:nth-of-type(4) {
-                    grid-row: 1;
-                }
-
-                &:nth-of-type(9),
-                &:nth-of-type(10),
-                &:nth-of-type(11),
-                &:nth-of-type(12) {
-                    grid-row: var(--rows);
-                }
-
-                &:nth-of-type(5),
-                &:nth-of-type(6) {
-                    grid-row: 2;
-                }
-
-                &:nth-of-type(7),
-                &:nth-of-type(8) {
-                    grid-row: calc(var(--rows) - 1);
-                }
+            &.slab::before {
+                background-size: 100%;
+                background-color: transparent;
+                box-shadow: none;
             }
         }
     }
