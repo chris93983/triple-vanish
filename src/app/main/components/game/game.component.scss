@@ -148,14 +148,21 @@
                         top: calc((100% - var(--star-size)) / 2);
                         left: calc(var(--star-position) - var(--star-size));
 
-                        &.achieved::before {
+                        &::before {
                             content: '';
                             @include size(100%);
                             background-image: var(--home-mission-star);
                             background-size: 85%;
+                            background-position: 45% center;
                             filter: drop-shadow(0 0 calc(var(--star-size) * 0.1) rgb(255, 229, 80));
                             position: absolute;
                             z-index: 1;
+                            transition: transform 0.2s cubic-bezier(0.5, 2.7, 0.7, 1);
+                            transform: scale(0);
+                        }
+
+                        &.achieved::before {
+                            transform: scale(1.0);
                         }
                         
                         &:nth-of-type(1) {
