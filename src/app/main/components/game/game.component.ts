@@ -18,7 +18,6 @@ export class GameComponent implements OnInit {
     get progress(): number {
         const progress = this.progressElement?.nativeElement.style.getPropertyValue('--progress') ?? '0';
         const progressNumber = Number(progress.replace('%', '')) / 100;
-        console.log('get progress', progress, progressNumber);
         return progressNumber;
     }
     set progress(value) {
@@ -27,7 +26,6 @@ export class GameComponent implements OnInit {
 
     ngOnInit(): void {
         this.pickFruitTypes();
-        console.log('oninit', this.progress, this.progressElement, this.progressElement?.nativeElement.style.getPropertyValue('--progress'));
     }
 
     private pickFruitTypes(): void {
